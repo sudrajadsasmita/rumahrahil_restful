@@ -8,7 +8,7 @@ class User_model extends CI_model
     {
         $client = new Client();
 
-        $response = $client->request('GET', 'http://localhost/RumahRahil/api/Admin_api/User_api', [
+        $response = $client->request('GET', 'http://localhost/RumahRahil/restserver_rumahrahil/api/Admin_api/User_api', [
             'query' => [
                 'rahil_key' => 'rumahrahileducation'
             ]
