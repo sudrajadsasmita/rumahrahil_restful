@@ -1,6 +1,6 @@
 <?php
 
-use GuzzleHttp\CLient;
+use GuzzleHttp\Client;
 
 class User_model extends CI_model
 {
