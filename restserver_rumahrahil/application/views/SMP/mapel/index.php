@@ -51,7 +51,7 @@
                             <select id="inputKelas" class="form-control" name="kelas" required>
                                 <option value="" selected>Pilih Kelas....</option>
                                 <?php foreach ($kelas as $t) : ?>
-                                    <option value="<?= $t['id_kelas']; ?>">SD <?= $t['nama_kelas']; ?></option>
+                                    <option value="<?= $t['id_kelas']; ?>"><?= $t['nama_kelas']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <div class="invalid-feedback">

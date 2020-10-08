@@ -2,7 +2,7 @@
 <?php foreach ($mapel as $m) : ?>
     <tr>
         <th scope="row"><?= $i; ?></th>
-        <td>Kelas <?= $m['nama_kelas']; ?></td>
+        <td><?= $m['nama_kelas']; ?></td>
         <td><?= $m['nama_mapel']; ?></td>
         <td>
             <a href="" data-toggle="modal" data-target="#updateModal<?= $m['id_mapel']; ?>" class="btn btn-warning px-3"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
@@ -26,9 +26,9 @@
                         <div class="form-group">
                             <label for="inputKelas">Kelas</label>
                             <select id="inputKelas" class="form-control" name="kelas" required>
-                                <option value="<?= $mapel['kelas_id']; ?>" selected>SD <?= $mapel['nama_kelas']; ?></option>
+                                <option value="<?= $mp['kelas_id']; ?>" selected><?= $mp['nama_kelas']; ?></option>
                                 <?php foreach ($kelas as $t) : ?>
-                                    <option value="<?= $t['id_kelas']; ?>">SD <?= $t['nama_kelas']; ?></option>
+                                    <option value="<?= $t['id_kelas']; ?>"><?= $t['nama_kelas']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <div class="invalid-feedback">

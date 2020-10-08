@@ -74,3 +74,21 @@
             </div>
         </div>
     </div>
+    <script>
+        function actionTemaSD() {
+            let a = document.getElementById('sortKelas').value;
+            temaSd(a);
+        }
+
+        function temaSd(a) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("tabeltema").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Sd_Controllers/tema/tableTema/'); ?>" + a, true);
+            xhttp.send();
+        }
+    </script>

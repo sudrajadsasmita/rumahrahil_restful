@@ -32,7 +32,7 @@ class SoalSMP extends CI_Controller
                 'soal_text' => $this->input->post('soal_text'),
                 'soal_gambar' => $this->input->post('soal_gambar'),
                 'soal_suara' => $this->input->post('soal_suara')
-                
+
             ];
             $this->soal->createSoal($data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Tambah data Berhasil</div>');
@@ -44,10 +44,10 @@ class SoalSMP extends CI_Controller
     {
         $data = [
             'paket_latihan_id' => $this->input->post('paket_latihan_id'),
-                'kunci_jawaban_latihan_id' => $this->input->post('kunci_jawaban_latihan_id'),
-                'soal_text' => $this->input->post('soal_text'),
-                'soal_gambar' => $this->input->post('soal_gambar'),
-                'soal_suara' => $this->input->post('soal_suara')
+            'kunci_jawaban_latihan_id' => $this->input->post('kunci_jawaban_latihan_id'),
+            'soal_text' => $this->input->post('soal_text'),
+            'soal_gambar' => $this->input->post('soal_gambar'),
+            'soal_suara' => $this->input->post('soal_suara')
         ];
         $this->soal->updateSoal($data, $id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Update data Berhasil</div>');

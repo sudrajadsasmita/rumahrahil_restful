@@ -3,7 +3,6 @@
     <tr>
         <th scope="row"><?= $i; ?></th>
         <td>Mapel <?= $b['nama_mapel']; ?></td>
-        <td><?= $b['nama_jenjang']; ?></td>
         <td><?= $b['nama_kelas']; ?></td>
         <td>
             <a href="" data-toggle="modal" data-target="#updateModal<?= $b['id_bab_latihan']; ?>" class="btn btn-warning px-3"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
@@ -35,41 +34,41 @@
                             <div class="invalid-feedback">
                                 Tolong Pilih Salah Satu Mapel
                             </div>
-                        <div class="form-group">
-                            <label for="inputJenjang">Jenjang</label>
-                            <select id="inputJenjang" class="form-control" name="jenjang" required>
-                                <option value="<?= $bb['jenjang_id']; ?>" selected>SD <?= $bb['nama_jenjang']; ?></option>
-                                <?php foreach ($jenjang as $t) : ?>
-                                    <option value="<?= $t['id_jenjang']; ?>">SD <?= $t['nama_jenjang']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <div class="invalid-feedback">
-                                Tolong Pilih Salah Satu Jenjang
+                            <div class="form-group">
+                                <label for="inputJenjang">Jenjang</label>
+                                <select id="inputJenjang" class="form-control" name="jenjang" required>
+                                    <option value="<?= $bb['jenjang_id']; ?>" selected>SD <?= $bb['nama_jenjang']; ?></option>
+                                    <?php foreach ($jenjang as $t) : ?>
+                                        <option value="<?= $t['id_jenjang']; ?>">SD <?= $t['nama_jenjang']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Tolong Pilih Salah Satu Jenjang
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputKelas">Kelas</label>
+                                    <select id="inputKelas" class="form-control" name="kelas" required>
+                                        <option value="<?= $bb['kelas_id']; ?>" selected>SD <?= $bb['nama_kelas']; ?></option>
+                                        <?php foreach ($kelas as $t) : ?>
+                                            <option value="<?= $t['id_kelas']; ?>">SD <?= $t['nama_kelas']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Tolong Pilih Salah Satu Kelas
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputNameBab">Nama Bab</label>
+                                    <input type="text" class="form-control" id="exampleInputNameBab" placeholder="Masukkan Nama Bab" name="nama_bab" value="<?= $bb['nama_bab']; ?>" required>
+                                    <div class="invalid-feedback">
+                                        Data Tidak Boleh Kosong
+                                    </div>
+                                </div>
                             </div>
-                        <div class="form-group">
-                            <label for="inputKelas">Kelas</label>
-                            <select id="inputKelas" class="form-control" name="kelas" required>
-                                <option value="<?= $bb['kelas_id']; ?>" selected>SD <?= $bb['nama_kelas']; ?></option>
-                                <?php foreach ($kelas as $t) : ?>
-                                    <option value="<?= $t['id_kelas']; ?>">SD <?= $t['nama_kelas']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <div class="invalid-feedback">
-                                Tolong Pilih Salah Satu Kelas
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputNameBab">Nama Bab</label>
-                            <input type="text" class="form-control" id="exampleInputNameBab" placeholder="Masukkan Nama Bab" name="nama_bab" value="<?= $bb['nama_bab']; ?>" required>
-                            <div class="invalid-feedback">
-                                Data Tidak Boleh Kosong
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
                 </form>
             </div>
         </div>

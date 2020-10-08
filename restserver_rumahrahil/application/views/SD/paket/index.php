@@ -74,3 +74,21 @@
             </div>
         </div>
     </div>
+    <script>
+        function actionPaketSD() {
+            let a = document.getElementById('sortSubtema').value;
+            paketSd(a);
+        }
+
+        function paketSd(a) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("tabelpaketsd").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Sd_Controllers/PaketSoalSd/tablePaketsd/'); ?>" + a, true);
+            xhttp.send();
+        }
+    </script>

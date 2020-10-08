@@ -7,7 +7,7 @@ class Bab extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Admin_api_model/User_model_api', 'user');
-        
+
         $this->load->model('Admin_api_model/Mapel_model_api', 'mapel');
         $this->load->model('Admin_api_model/Jenjang_model_api', 'jenjang');
         $this->load->model('Admin_api_model/Kelas_model_api', 'kelas');
@@ -30,7 +30,7 @@ class Bab extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $data = [
-                
+
                 'mapel_id' => $this->input->post('mapel'),
                 'jenjang_id' => $this->input->post('jenjang'),
                 'kelas_id' => $this->input->post('kelas'),
@@ -45,7 +45,7 @@ class Bab extends CI_Controller
     public function updateBab($id)
     {
         $data = [
-            
+
             'mapel_id' => $this->input->post('mapel'),
             'jenjang_id' => $this->input->post('jenjang'),
             'kelas_id' => $this->input->post('kelas'),

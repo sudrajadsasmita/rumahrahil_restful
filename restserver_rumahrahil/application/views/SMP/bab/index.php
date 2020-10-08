@@ -13,7 +13,7 @@
                             <select id="sortMapel" class="form-control" required onchange="actionBab()">
                                 <option selected value="all">Tampilkan Semua</option>..</option>
                                 <?php foreach ($mapel as $t) : ?>
-                                    <option value="<?= $t['id_mapel']; ?>"><?= $t['nama_mapel']; ?></option>
+                                    <option value="<?= $t['id_mapel']; ?>"><?= $t['nama_mapel']; ?> : <?= $t['nama_kelas']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -21,9 +21,7 @@
                             <thead class="bg-primary text-light">
                                 <tr>
                                     <th scope="col">#</th>
-                                    
                                     <th scope="col">Nama Mapel</th>
-                                    <th scope="col">Jenjang</th>
                                     <th scope="col">Kelas</th>
                                     <th scope="col">Nama Bab</th>
                                     <th scope="col">Action</th>
@@ -49,31 +47,29 @@
                 </div>
                 <form class="needs-validation" id="form-theme" novalidate method="POST" action="<?= base_url('bab'); ?>">
                     <div class="modal-body">
-                        
+
                         <div class="form-group">
                             <label for="inputMapel">Mapel</label>
                             <select id="inputMapel" class="form-control" name="mapel" required>
                                 <option value="" selected>Pilih Mapel....</option>
                                 <?php foreach ($mapel as $m) : ?>
-                                    <option value="<?= $m['id_mapel']; ?>"> <?= $m['nama_mapel']; ?></option>
+                                    <option value="<?= $m['id_mapel']; ?>"> <?= $m['nama_mapel']; ?> : <?= $m['nama_kelas'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <div class="invalid-feedback">
                                 Tolong Pilih Salah Satu Mapel
                             </div>
-                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="inputJenjang">Jenjang</label>
-                            <select id="inputJenjang" class="form-control" name="jenjang" required>
-                                <option value="" selected>Pilih Jenjang....</option>
-                                <?php foreach ($jenjang as $g) : ?>
-                                    <option value="<?= $g['id_jenjang']; ?>"> <?= $g['nama_jenjang']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                            <?php foreach ($jenjang as $g) : ?>
+                                <input type="text" class="form-control" value="<?= $g['nama_jenjang']; ?>" readonly>
+                                <input type="hidden" name="jenjang" value="<?= $g['id_jenjang']; ?>">
+                            <?php endforeach; ?>
                             <div class="invalid-feedback">
                                 Tolong Pilih Salah Satu Jenjang
                             </div>
-                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="inputKelas">Kelas</label>
                             <select id="inputKelas" class="form-control" name="kelas" required>

@@ -16,7 +16,7 @@ class Mapel extends CI_Controller
         $data['user'] = $this->user->getUserWhereEmail($email);
         $data['kelas'] = $this->kelas->getKelasSMP();
         $data['mapel']['mapel'] = $this->mapel->getMapelJoinKelas();
-        $data['title'] = 'Mapel';
+        $data['title'] = 'Mapel SMP';
         if ($this->input->post('kelas') == null) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);

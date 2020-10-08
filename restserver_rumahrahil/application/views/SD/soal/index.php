@@ -219,3 +219,93 @@
             background: #17D654;
         }
     </style>
+    <script>
+        function actionSoalSD() {
+            let a = document.getElementById('sortSoalSd').value;
+            sortSoalSD(a);
+        }
+
+        function sortSoalSD(a) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("tabelSoalSd").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Sd_Controllers/SoalSd/tableSoalsd/'); ?>" + a, true);
+            xhttp.send();
+        }
+
+        function inputKunciSDForSoal() {
+            let a = document.getElementById('nama_paket_sd').value;
+            pilihKunciSdForSoal(a);
+        }
+
+        function inputNoSoalSdForSoal() {
+            let a = document.getElementById('no_soal_sd').value;
+            let b = document.getElementById('nama_paket_sd').value;
+            pilihJawabanBenarForSoal(a, b);
+        }
+
+        function pilihKunciSdForSoal(a) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("no_soal_sd").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Sd_Controllers/SoalSd/selectNoSoal/'); ?>" + a, true);
+            xhttp.send();
+        }
+
+        function pilihJawabanBenarForSoal(a, b) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("jawaban_benar").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Sd_Controllers/SoalSd/selectJawabanBenar/'); ?>" + a + "/" + b, true);
+            xhttp.send();
+        }
+        <?php foreach ($soal as $s) : ?>
+
+            function inputUpdateKunciSD<?= $s['id_soal_latihan_sd']; ?>() {
+                let a = document.getElementById('update_nama_paket_sd_<?= $s['id_soal_latihan_sd']; ?>').value;
+                updatePilihKunciSd<?= $s['id_soal_latihan_sd']; ?>(a);
+            }
+
+            function inputUpdateNoSoalSd<?= $s['id_soal_latihan_sd']; ?>() {
+                let a = document.getElementById('update_no_soal_sd_<?= $s['id_soal_latihan_sd']; ?>').value;
+                let b = document.getElementById('update_nama_paket_sd_<?= $s['id_soal_latihan_sd']; ?>').value;
+                updatePilihJawabanBenar<?= $s['id_soal_latihan_sd']; ?>(a, b);
+            }
+
+            function updatePilihKunciSd<?= $s['id_soal_latihan_sd']; ?>(a) {
+                var xhttp;
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("update_no_soal_sd_<?= $s['id_soal_latihan_sd']; ?>").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("POST", "<?= base_url('Sd_Controllers/SoalSd/selectNoSoal/'); ?>" + a, true);
+                xhttp.send();
+            }
+
+            function updatePilihJawabanBenar<?= $s['id_soal_latihan_sd']; ?>(a, b) {
+                var xhttp;
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("update_jawaban_benar_<?= $s['id_soal_latihan_sd']; ?>").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("POST", "<?= base_url('Sd_Controllers/SoalSd/selectJawabanBenar/'); ?>" + a + "/" + b, true);
+                xhttp.send();
+            }
+        <?php endforeach; ?>
+    </script>

@@ -4,7 +4,7 @@
             <div class="row no-gutters">
                 <div class="col-md-12">
                     <div class="card-body">
-                        <h1 class="text-center">Soal SD</h1>
+                        <h1 class="text-center">Jawaban SD</h1>
                         <div class="col-lg">
                             <?= $this->session->flashdata('message'); ?>
                         </div>
@@ -156,7 +156,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="update_nama_paket_sd">Pilih Paket Soal</label>
-                            <select id="update_nama_paket_sd" class="form-control" name="nama_paket_sd" onchange="inputKunciSDForJawaban<?= $stm['id_jawaban_latihan_sd']; ?>()" required>
+                            <select id="update_nama_paket_sd<?= $stm['id_jawaban_latihan_sd']; ?>" class="form-control" name="nama_paket_sd" onchange="inputKunciSDForJawaban<?= $stm['id_jawaban_latihan_sd']; ?>()" required>
                                 <option selected value="">Pilih..</option>
                                 <?php foreach ($paket as $t) : ?>
                                     <option value="<?= $t['id_paket_latihan_sd']; ?>"><?= $t['nama_paket_sd'] . " : " . $t['nama_subtema']; ?></option>
@@ -168,21 +168,21 @@
                         </div>
                         <div class="form-group">
                             <label for="update_no_soal_sd">Pilih Nomer Soal</label>
-                            <select id="update_no_soal_sd" class="form-control" name="no_soal_sd" onchange="inputNoSoalSdForJawaban<?= $stm['id_jawaban_latihan_sd']; ?>()" required>
+                            <select id="update_no_soal_sd<?= $stm['id_jawaban_latihan_sd']; ?>" class="form-control" name="no_soal_sd<?= $stm['id_jawaban_latihan_sd']; ?>" onchange="inputNoSoalSdForJawaban<?= $stm['id_jawaban_latihan_sd']; ?>()" required>
                                 <option selected value="">Pilih Paket Soal</option>
                             </select>
                             <div class="invalid-feedback">
                                 Tolong Pilih Salah Satu nomer soal
                             </div>
                         </div>
-                        <div class="form-group" id="update_soal_text">
+                        <div class="form-group" id="update_soal_text<?= $stm['id_jawaban_latihan_sd']; ?>">
                             <label for="soal_text">Soal Text</label>
                             <input type="text" class="form-control" value="" readonly>
                             <div class="invalid-feedback">
                                 Tolong Pilih Salah Satu nomer soal
                             </div>
                         </div>
-                        <div class="form-group" id="update_soal_gambar">
+                        <div class="form-group" id="update_soal_gambar<?= $stm['id_jawaban_latihan_sd']; ?>">
                             <label for="jawaban_benar">Soal gambar</label>
                             <img src="<?= base_url('assets/img/') ?>default.png" alt="..." class="img-thumbnail">
                             <div class="invalid-feedback">
@@ -262,3 +262,111 @@
             background: #17D654;
         }
     </style>
+    <script>
+        function actionJawabanSD() {
+            let a = document.getElementById('sortJawabanSd').value;
+            jawabanSd(a);
+        }
+
+        function jawabanSd(a) {
+
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("tabelJawabanSd").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Sd_Controllers/JawabanSd/tableJawabansd/'); ?>" + a, true);
+            xhttp.send();
+        }
+
+        function inputKunciSDForJawaban() {
+            let a = document.getElementById('nama_paket_sd').value;
+            pilihKunciSdForJawaban(a);
+        }
+
+        function inputNoSoalSdForJawaban() {
+            let a = document.getElementById('no_soal_sd').value;
+            let b = document.getElementById('nama_paket_sd').value;
+            pilihSoalGambarForJawaban(a, b);
+            pilihSoalTextForJawaban(a, b);
+        }
+
+        function pilihKunciSdForJawaban(a) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("no_soal_sd").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Sd_Controllers/JawabanSd/selectNoSoal/'); ?>" + a, true);
+            xhttp.send();
+        }
+
+        function pilihSoalGambarForJawaban(a, b) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("soal_gambar").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Sd_Controllers/JawabanSd/selectSoalGambar/'); ?>" + a + "/" + b, true);
+            xhttp.send();
+
+        }
+        <?php foreach ($jawaban as $j) : ?>
+
+            function inputKunciSDForJawaban<?= $j['id_jawaban_latihan_sd']; ?>() {
+                let a = document.getElementById('update_nama_paket_sd<?= $j['id_jawaban_latihan_sd']; ?>').value;
+                pilihKunciSdForJawaban<?= $j['id_jawaban_latihan_sd']; ?>(a);
+            }
+
+            function inputNoSoalSdForJawaban<?= $j['id_jawaban_latihan_sd']; ?>() {
+                let a = document.getElementById('update_no_soal_sd<?= $j['id_jawaban_latihan_sd']; ?>').value;
+                let b = document.getElementById('update_nama_paket_sd<?= $j['id_jawaban_latihan_sd']; ?>').value;
+                pilihSoalGambarForJawaban<?= $j['id_jawaban_latihan_sd']; ?>(a, b);
+                pilihSoalTextForJawaban<?= $j['id_jawaban_latihan_sd']; ?>(a, b);
+            }
+
+            function pilihKunciSdForJawaban<?= $j['id_jawaban_latihan_sd']; ?>(a) {
+                var xhttp;
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("update_no_soal_sd<?= $j['id_jawaban_latihan_sd']; ?>").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("POST", "<?= base_url('Sd_Controllers/JawabanSd/selectNoSoal/'); ?>" + a, true);
+                xhttp.send();
+            }
+
+            function pilihSoalTextForJawaban<?= $j['id_jawaban_latihan_sd']; ?>(a, b) {
+                var xhttp;
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("update_soal_text<?= $j['id_jawaban_latihan_sd']; ?>").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("POST", "<?= base_url('Sd_Controllers/JawabanSd/selectSoal/'); ?>" + a + "/" + b, true);
+                xhttp.send();
+
+            }
+
+            function pilihSoalGambarForJawaban<?= $j['id_jawaban_latihan_sd']; ?>(a, b) {
+                var xhttp;
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("update_soal_gambar<?= $j['id_jawaban_latihan_sd']; ?>").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("POST", "<?= base_url('Sd_Controllers/JawabanSd/selectSoalGambar/'); ?>" + a + "/" + b, true);
+                xhttp.send();
+
+            }
+        <?php endforeach; ?>
+    </script>

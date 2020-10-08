@@ -76,3 +76,34 @@
             </div>
         </div>
     </div>
+    <script>
+        function actionSubTemaSD() {
+            let a = document.getElementById('sortTema').value;
+            subtemaSd(a);
+        }
+
+        function subtemaSd(a) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("tabelsubtema").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Sd_Controllers/subtema/tableSubtema/'); ?>" + a, true);
+            xhttp.send();
+        }
+
+        function pilihSoalTextForJawaban(a, b) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("soal_text").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Sd_Controllers/JawabanSd/selectSoal/'); ?>" + a + "/" + b, true);
+            xhttp.send();
+
+        }
+    </script>

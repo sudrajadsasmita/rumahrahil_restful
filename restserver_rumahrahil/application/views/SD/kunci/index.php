@@ -87,3 +87,21 @@
             </div>
         </div>
     </div>
+    <script>
+        function actionKunciSD() {
+            let a = document.getElementById('sortPaketSd').value;
+            kunciSd(a);
+        }
+
+        function kunciSd(a) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("tabelKunciSd").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Sd_Controllers/KunciJawabanSD/tableKuncisd/'); ?>" + a, true);
+            xhttp.send();
+        }
+    </script>
