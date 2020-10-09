@@ -30,19 +30,19 @@ class Login extends CI_Controller
     private function _login()
     {
         $email = htmlspecialchars($this->input->post('email'));
-        $password = $this->input->post('password');
-        $user = $this->user->getAllUser();
+        $password = $this->input->post('pass');
+        $user = $this->user->getUserWhereEmail($email);
         if ($user) {
             if ($password == $user['password']) {
-                if ($user['role_id'] == 1) {
+                if ($user['role_id'] >= 2) {
                     $data = [
                         'email' => $user['email'],
                         'role_id' => $user['role_id']
                     ];
-                    $this->session->set_userdata($data);
+                    //$this->session->set_userdata($data);
                     redirect('dashboard');
                 } else {
-                    echo "halaman siswa/guru (masih tahap pengambangan)";
+                    echo "Harusnya anda tidak masuk sini min !!!";
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password anda salah</div>');

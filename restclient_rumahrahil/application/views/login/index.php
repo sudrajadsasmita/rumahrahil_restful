@@ -32,7 +32,7 @@
                     <img src="<?= base_url('asset/'); ?>images/img-01.png" alt="IMG">
                 </div>
 
-                <form class="login100-form validate-form">
+                <form method="POST" action="<?= base_url('Login'); ?>" class="login100-form validate-form">
                     <span class="login100-form-title">
                         Member Login
                     </span>

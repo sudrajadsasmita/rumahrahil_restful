@@ -1,11 +1,9 @@
 <?php
 
-use GuzzleHttp\Client;
 
 class User_model_api extends CI_Model
 {
 
-    private $_client;
 
     public function __construct()
     {

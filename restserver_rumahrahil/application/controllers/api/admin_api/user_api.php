@@ -18,11 +18,19 @@ class User_api extends REST_Controller
     }
     public function index_get()
     {
-        $user = $this->get('id_user');
+        if ($this->get('id_user')) {
+            $user = $this->get('id_user');
+        } elseif ($this->get('email')) {
+            $user = $this->get('email');
+        } else {
+            $user = null;
+        }
         if ($user === null) {
             $getuser = $this->api->getUser();
-        } else {
+        } elseif ($user === $this->get('id_user')) {
             $getuser = $this->api->getUser($user);
+        } elseif ($user === $this->get('email')) {
+            $getuser = $this->api->getUserWhereEmail($user);
         }
         if ($getuser) {
             $this->response([
