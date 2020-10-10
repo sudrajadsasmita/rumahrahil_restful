@@ -39,7 +39,7 @@ class Login extends CI_Controller
                         'email' => $user['email'],
                         'role_id' => $user['role_id']
                     ];
-                    //$this->session->set_userdata($data);
+                    $this->session->set_userdata($data);
                     redirect('dashboard');
                 } else {
                     echo "Harusnya anda tidak masuk sini min !!!";
@@ -52,5 +52,12 @@ class Login extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email anda belum terdaftar</div>');
             redirect('login');
         }
+    }
+    public function logout()
+    {
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('role_id');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Anda berhasil Logout</div>');
+        redirect('login');
     }
 }

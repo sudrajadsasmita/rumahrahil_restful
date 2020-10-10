@@ -23,7 +23,7 @@
     <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
     <meta name="author" content="BootstrapDash">
 
-    <title>Azia Responsive Bootstrap 4 Dashboard Template</title>
+    <title><?= $title; ?></title>
 
     <!-- vendor css -->
     <link href="<?= base_url('assets/'); ?>lib/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -42,114 +42,46 @@
     <div class="az-header">
         <div class="container">
             <div class="az-header-left">
-                <a href="index.html" class="az-logo"><span></span> azia</a>
+                <a href="<?= base_url('dashboard'); ?>" class="az-logo"><span></span> Rumah Rahil Education</a>
                 <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
             </div><!-- az-header-left -->
             <div class="az-header-menu">
                 <div class="az-header-menu-header">
-                    <a href="index.html" class="az-logo"><span></span> azia</a>
+                    <a href="<?= base_url('dashboard'); ?>" class="az-logo"><span></span> Rumah Rahil</a>
                     <a href="" class="close">&times;</a>
                 </div><!-- az-header-menu-header -->
                 <ul class="nav">
                     <li class="nav-item active show">
-                        <a href="index.html" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
+                        <a href="<?= base_url('dashboard'); ?>" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i> Pages</a>
-                        <nav class="az-menu-sub">
-                            <a href="page-signin.html" class="nav-link">Sign In</a>
-                            <a href="page-signup.html" class="nav-link">Sign Up</a>
-                        </nav>
+                        <a href="chart-chartjs.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Nilai</a>
                     </li>
                     <li class="nav-item">
-                        <a href="chart-chartjs.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Charts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="form-elements.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Forms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link with-sub"><i class="typcn typcn-book"></i> Components</a>
-                        <div class="az-menu-sub">
-                            <div class="container">
-                                <div>
-                                    <nav class="nav">
-                                        <a href="elem-buttons.html" class="nav-link">Buttons</a>
-                                        <a href="elem-dropdown.html" class="nav-link">Dropdown</a>
-                                        <a href="elem-icons.html" class="nav-link">Icons</a>
-                                        <a href="table-basic.html" class="nav-link">Table</a>
-                                    </nav>
-                                </div>
-                            </div><!-- container -->
-                        </div>
+                        <a href="form-elements.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Profile</a>
                     </li>
                 </ul>
             </div><!-- az-header-menu -->
             <div class="az-header-right">
-                <a href="https://www.bootstrapdash.com/demo/azia-free/docs/documentation.html" target="_blank" class="az-header-search-link"><i class="far fa-file-alt"></i></a>
-                <a href="" class="az-header-search-link"><i class="fas fa-search"></i></a>
-                <div class="az-header-message">
-                    <a href="#"><i class="typcn typcn-messages"></i></a>
-                </div><!-- az-header-message -->
-                <div class="dropdown az-header-notification">
-                    <a href="" class="new"><i class="typcn typcn-bell"></i></a>
-                    <div class="dropdown-menu">
-                        <div class="az-dropdown-header mg-b-20 d-sm-none">
-                            <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
-                        </div>
-                        <h6 class="az-notification-title">Notifications</h6>
-                        <p class="az-notification-text">You have 2 unread notification</p>
-                        <div class="az-notification-list">
-                            <div class="media new">
-                                <div class="az-img-user"><img src="../img/faces/face2.jpg" alt=""></div>
-                                <div class="media-body">
-                                    <p>Congratulate <strong>Socrates Itumay</strong> for work anniversaries</p>
-                                    <span>Mar 15 12:32pm</span>
-                                </div><!-- media-body -->
-                            </div><!-- media -->
-                            <div class="media new">
-                                <div class="az-img-user online"><img src="../img/faces/face3.jpg" alt=""></div>
-                                <div class="media-body">
-                                    <p><strong>Joyce Chua</strong> just created a new blog post</p>
-                                    <span>Mar 13 04:16am</span>
-                                </div><!-- media-body -->
-                            </div><!-- media -->
-                            <div class="media">
-                                <div class="az-img-user"><img src="../img/faces/face4.jpg" alt=""></div>
-                                <div class="media-body">
-                                    <p><strong>Althea Cabardo</strong> just created a new blog post</p>
-                                    <span>Mar 13 02:56am</span>
-                                </div><!-- media-body -->
-                            </div><!-- media -->
-                            <div class="media">
-                                <div class="az-img-user"><img src="../img/faces/face5.jpg" alt=""></div>
-                                <div class="media-body">
-                                    <p><strong>Adrian Monino</strong> added new comment on your photo</p>
-                                    <span>Mar 12 10:40pm</span>
-                                </div><!-- media-body -->
-                            </div><!-- media -->
-                        </div><!-- az-notification-list -->
-                        <div class="dropdown-footer"><a href="">View All Notifications</a></div>
-                    </div><!-- dropdown-menu -->
-                </div><!-- az-header-notification -->
+
+
                 <div class="dropdown az-profile-menu">
-                    <a href="" class="az-img-user"><img src="../img/faces/face1.jpg" alt=""></a>
+                    <a href="" class="az-img-user"><img src="<?= base_url('assets'); ?>/img/boy.png" alt=""></a>
                     <div class="dropdown-menu">
                         <div class="az-dropdown-header d-sm-none">
                             <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
                         </div>
                         <div class="az-header-profile">
                             <div class="az-img-user">
-                                <img src="../img/faces/face1.jpg" alt="">
+                                <img src="<?= base_url('assets'); ?>/img/boy.png" alt="">
                             </div><!-- az-img-user -->
-                            <h6>Aziana Pechon</h6>
+                            <h6><?= $user['nama']; ?></h6>
                             <span>Premium Member</span>
                         </div><!-- az-header-profile -->
 
                         <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
                         <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
-                        <a href="" class="dropdown-item"><i class="typcn typcn-time"></i> Activity Logs</a>
-                        <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>
-                        <a href="page-signin.html" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
+                        <a href="<?= base_url('login/logout') ?>" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
                     </div><!-- dropdown-menu -->
                 </div>
             </div><!-- az-header-right -->
@@ -161,75 +93,49 @@
             <div class="az-content-body">
                 <div class="az-dashboard-one-title">
                     <div>
-                        <h2 class="az-dashboard-title">Hi, welcome back!</h2>
-                        <p class="az-dashboard-text">Your web analytics dashboard template.</p>
-                    </div>
-                    <div class="az-content-header-right">
-                        <div class="media">
-                            <div class="media-body">
-                                <label>Start Date</label>
-                                <h6>Oct 10, 2018</h6>
-                            </div><!-- media-body -->
-                        </div><!-- media -->
-                        <div class="media">
-                            <div class="media-body">
-                                <label>End Date</label>
-                                <h6>Oct 23, 2018</h6>
-                            </div><!-- media-body -->
-                        </div><!-- media -->
-                        <div class="media">
-                            <div class="media-body">
-                                <label>Event Category</label>
-                                <h6>All Categories</h6>
-                            </div><!-- media-body -->
-                        </div><!-- media -->
-                        <a href="" class="btn btn-purple">Export</a>
+                        <h2 class="az-dashboard-title">Hai, Selamat Datang!</h2>
+                        <p class="az-dashboard-text">Selamat melaksanakan tes online.</p>
                     </div>
                 </div><!-- az-dashboard-one-title -->
                 <div class="row row-sm mg-b-20">
                     <div class="col-lg-7 ht-lg-90p">
                         <div class="card card-dashboard-one ">
-                            <div id="card" class="card mb-3">
+                            <div id="card" class="card mb-3" style="max-width: 930px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4" style="height: 365px;">
                                         <img src="<?= base_url('assets'); ?>/img/boy.png" class="card-img">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                            <h5 class="card-title"><?= $user['nama']; ?></h5>
+                                            <p class="card-text"><?= $user['asal_sekolah']; ?></p>
+                                            <p class="card-text"><small class="text-muted"><?= $user['email']; ?></small></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div><!-- card -->
-                        <style>
-                            #card {
-                                max-width: 930px;
-                            }
-                        </style>
                     </div><!-- col -->
                     <div class="col-lg-5 mg-t-20 mg-lg-t-0">
                         <div class="row row-sm">
                             <div class="col-sm-6">
                                 <div class="card card-dashboard-two">
                                     <div class="card-header">
-                                        <h6>33.50% <i class="icon ion-md-trending-up tx-success"></i> <small>18.02%</small></h6>
-                                        <p>Bounce Rate</p>
+                                        <h6>NISN</h6>
+                                        <p>Diambil dari API</p>
                                     </div><!-- card-header -->
                                     <div class="card-body">
                                         <div class="chart-wrapper">
-                                            <div id="flotChart1" class="flot-chart"></div>
+                                            <div id="flotChart2" class="flot-chart"></div>
                                         </div><!-- chart-wrapper -->
-                                    </div><!-- card-body -->
+                                    </div>
                                 </div><!-- card -->
                             </div><!-- col -->
                             <div class="col-sm-6 mg-t-20 mg-sm-t-0">
                                 <div class="card card-dashboard-two">
                                     <div class="card-header">
-                                        <h6>86k <i class="icon ion-md-trending-down tx-danger"></i> <small>0.86%</small></h6>
-                                        <p>Total Users</p>
+                                        <h6>KELAS</h6>
+                                        <p><?= $user['kelas_id']; ?></p>
                                     </div><!-- card-header -->
                                     <div class="card-body">
                                         <div class="chart-wrapper">
@@ -238,18 +144,32 @@
                                     </div><!-- card-body -->
                                 </div><!-- card -->
                             </div><!-- col -->
-                            <div class="col-sm-12 mg-t-20">
-                                <div class="card card-dashboard-three">
+                            <div class="col-sm-6 mt-5">
+                                <div class="card card-dashboard-two">
                                     <div class="card-header">
-                                        <p>All Sessions</p>
-                                        <h6>16,869 <small class="tx-success"><i class="icon ion-md-arrow-up"></i> 2.87%</small></h6>
-                                        <small>The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc.</small>
+                                        <h6>TANGGAL</h6>
+                                        <p>Diambil dari API</p>
                                     </div><!-- card-header -->
                                     <div class="card-body">
-                                        <div class="chart"><canvas id="chartBar5"></canvas></div>
+                                        <div class="chart-wrapper">
+                                            <div id="flotChart2" class="flot-chart"></div>
+                                        </div><!-- chart-wrapper -->
                                     </div>
-                                </div>
-                            </div>
+                                </div><!-- card -->
+                            </div><!-- col -->
+                            <div class="col-sm-6 mg-t-20 mg-sm-t-0 mt-5">
+                                <div class="card card-dashboard-two">
+                                    <div class="card-header">
+                                        <h6>WAKTU</h6>
+                                        <p>Diambil dari API</p>
+                                    </div><!-- card-header -->
+                                    <div class="card-body">
+                                        <div class="chart-wrapper">
+                                            <div id="flotChart2" class="flot-chart"></div>
+                                        </div><!-- chart-wrapper -->
+                                    </div><!-- card-body -->
+                                </div><!-- card -->
+                            </div><!-- col -->
                         </div><!-- row -->
                     </div>
                     <!--col -->
