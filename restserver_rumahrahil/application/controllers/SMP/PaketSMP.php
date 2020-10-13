@@ -6,6 +6,7 @@ class PaketSMP extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_login();
         $this->load->model('Admin_api_model/User_model_api', 'user');
         $this->load->model('Admin_api_model/Bab_model_api', 'bab');
         $this->load->model('Paket_api_model/Paket_latihan_model_api', 'paket');

@@ -6,6 +6,7 @@ class JawabanSMP extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_login();
         $this->load->model('Admin_api_model/User_model_api', 'user');
         $this->load->model('Soal_api_model/Soal_latihan_model_api', 'soal');
         $this->load->model('Jawaban_api_model/Jawaban_latihan_model_api', 'jawaban');
@@ -40,11 +41,11 @@ class JawabanSMP extends CI_Controller
     public function updateJawabanlatihan($id)
     {
         $data = [
-                'soal_latihan_id' => $this->input->post('soal'),
-                'option_a' => $this->input->post('option_a'),
-                'option_b' => $this->input->post('option_b'),
-                'option_c' => $this->input->post('option_c'),
-                'option_d' => $this->input->post('option_d')
+            'soal_latihan_id' => $this->input->post('soal'),
+            'option_a' => $this->input->post('option_a'),
+            'option_b' => $this->input->post('option_b'),
+            'option_c' => $this->input->post('option_c'),
+            'option_d' => $this->input->post('option_d')
         ];
         $this->jawaban->updateJawabanlatihan($data, $id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Update data Berhasil</div>');

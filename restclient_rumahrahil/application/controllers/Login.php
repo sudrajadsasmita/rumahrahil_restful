@@ -6,7 +6,7 @@ class Login extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
+        is_logout();
         $this->load->model('User_model', 'user');
     }
 

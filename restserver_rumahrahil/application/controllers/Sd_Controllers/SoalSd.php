@@ -6,6 +6,7 @@ class SoalSd extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_login();
         $this->load->model('Admin_api_model/User_model_api', 'user');
         $this->load->model('Paket_api_model/Paket_sd_model_api', 'paket');
         $this->load->model('Kunci_api_model/Kunci_sd_model_api', 'kunci');
