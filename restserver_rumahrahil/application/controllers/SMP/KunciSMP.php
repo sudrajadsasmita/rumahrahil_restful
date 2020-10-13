@@ -6,6 +6,7 @@ class KunciSMP extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_login();
         $this->load->model('Admin_api_model/User_model_api', 'user');
         $this->load->model('Paket_api_model/Paket_latihan_model_api', 'paket');
         $this->load->model('Kunci_api_model/Kunci_latihan_model_api', 'kunci');
@@ -27,7 +28,7 @@ class KunciSMP extends CI_Controller
             $data = [
                 'paket_latihan_id' => $this->input->post('paket_latihan_id'),
                 'jawaban_benar' => $this->input->post('jawaban_benar')
-                
+
             ];
             $this->kunci->createKuncilatihan($data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Tambah data Berhasil</div>');
@@ -39,7 +40,7 @@ class KunciSMP extends CI_Controller
     {
         $data = [
             'paket_latihan_id' => $this->input->post('paket_latihan_id'),
-            'jawaban_benar' => $this->input->post('jawaban_benar')   
+            'jawaban_benar' => $this->input->post('jawaban_benar')
         ];
         $this->kunci->updateKuncilatihan($data, $id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Update data Berhasil</div>');

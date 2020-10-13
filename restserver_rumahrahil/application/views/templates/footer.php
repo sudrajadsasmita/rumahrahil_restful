@@ -13,7 +13,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                <a href="<?= base_url('Login/logout'); ?>" class="btn btn-primary">Logout</a>
+                <a href="<?= base_url('logout'); ?>" class="btn btn-primary">Logout</a>
             </div>
         </div>
     </div>

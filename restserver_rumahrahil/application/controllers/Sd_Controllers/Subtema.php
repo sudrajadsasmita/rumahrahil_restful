@@ -6,6 +6,7 @@ class Subtema extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_login();
         $this->load->model('Admin_api_model/User_model_api', 'user');
         $this->load->model('Admin_api_model/Tema_model_api', 'tema');
         $this->load->model('Admin_api_model/Subtema_model_api', 'Subtema');

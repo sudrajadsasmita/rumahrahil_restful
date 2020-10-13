@@ -9,6 +9,7 @@ class JawabanSd extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_login();
         $this->load->model('Jawaban_api_model/jawaban_sd_model_api', 'jawaban');
         $this->load->model('Paket_api_model/paket_sd_model_api', 'paket');
         $this->load->model('Soal_api_model/soal_sd_model_api', 'soal');
