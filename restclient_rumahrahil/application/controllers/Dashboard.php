@@ -15,6 +15,8 @@ class Dashboard extends CI_Controller
         $email = $this->session->userdata('email');
         $data['user'] = $this->user->getUserWhereEmail($email);
         $data['title'] = 'Dashboard';
+        $this->load->view('templates/header', $data);
         $this->load->view('dashboard/index', $data);
+        $this->load->view('templates/footer', $data);
     }
 }
