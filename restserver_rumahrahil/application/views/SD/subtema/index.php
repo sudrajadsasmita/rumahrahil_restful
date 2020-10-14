@@ -19,7 +19,7 @@
                                 </select>
                             </div>
                         </span>
-                        <table class="table table-hover">
+                        <table id="example" class="display" style="width:100%">
                             <thead class="bg-primary text-light">
                                 <tr>
                                     <th scope="col">#</th>
