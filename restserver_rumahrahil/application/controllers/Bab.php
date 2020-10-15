@@ -71,4 +71,27 @@ class Bab extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Hapus data Berhasil</div>');
         redirect('Bab');
     }
+
+    public function selectKelas($id = null)
+    {
+        if ($id === null) {
+            echo '
+            <label for="inputKelas">Kelas</label> 
+            <input type="text" class="form-control" value="Kelas..." readonly>
+            <div class="invalid-feedback">
+                Tolong Pilih Salah Satu Kelas
+            </div>
+        ';
+        } else {
+            $data = $this->mapel->getMapelSMP($id);
+            echo '
+                <label for="inputKelas">Kelas</label> 
+                <input type="text" class="form-control" value="' . $data['nama_kelas'] . '" readonly>
+                <input type="hidden" name="kelas" value="' . $data['kelas_id'] . '">
+                <div class="invalid-feedback">
+                    Tolong Pilih Salah Satu Kelas
+                </div>
+            ';
+        }
+    }
 }

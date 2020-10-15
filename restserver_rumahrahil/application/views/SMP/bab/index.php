@@ -17,7 +17,7 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <table class="table table-hover">
+                        <table id="example" class="display" style="width:100%">
                             <thead class="bg-primary text-light">
                                 <tr>
                                     <th scope="col">#</th>
@@ -49,8 +49,8 @@
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <label for="inputMapel">Mapel</label>
-                            <select id="inputMapel" class="form-control" name="mapel" required>
+                            <label for="mapel">Mapel</label>
+                            <select id="mapel" class="form-control" name="mapel" onchange="selectKelas()" required>
                                 <option value="" selected>Pilih Mapel....</option>
                                 <?php foreach ($mapel as $m) : ?>
                                     <option value="<?= $m['id_mapel']; ?>"> <?= $m['nama_mapel']; ?> : <?= $m['nama_kelas'] ?></option>
@@ -70,14 +70,9 @@
                                 Tolong Pilih Salah Satu Jenjang
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="kelas">
                             <label for="inputKelas">Kelas</label>
-                            <select id="inputKelas" class="form-control" name="kelas" required>
-                                <option value="" selected>Pilih Kelas....</option>
-                                <?php foreach ($kelas as $ke) : ?>
-                                    <option value="<?= $ke['id_kelas']; ?>"> <?= $ke['nama_kelas']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                            <input type="text" class="form-control" value="Kelas....." readonly>
                             <div class="invalid-feedback">
                                 Tolong Pilih Salah Satu Kelas
                             </div>
@@ -98,3 +93,23 @@
             </div>
         </div>
     </div>
+    <script>
+        function selectKelas() {
+            let a = document.getElementById('mapel').value;
+            pilihKelas(a);
+        }
+
+
+
+        function pilihKelas(a) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("kelas").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Bab/selectKelas/'); ?>" + a, true);
+            xhttp.send();
+        }
+    </script>

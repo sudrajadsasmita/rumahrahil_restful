@@ -2,8 +2,9 @@
 <?php foreach ($bab as $b) : ?>
     <tr>
         <th scope="row"><?= $i; ?></th>
-        <td>Mapel <?= $b['nama_mapel']; ?></td>
+        <td><?= $b['nama_mapel']; ?></td>
         <td><?= $b['nama_kelas']; ?></td>
+        <td><?= $b['nama_bab']; ?></td>
         <td>
             <a href="" data-toggle="modal" data-target="#updateModal<?= $b['id_bab_latihan']; ?>" class="btn btn-warning px-3"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
             <a href="" data-toggle="modal" data-target="#deleteModal<?= $b['id_bab_latihan']; ?>" class="btn btn-danger px-3"><i class="far fa-trash-alt" aria-hidden="true"></i></a>
@@ -69,6 +70,8 @@
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

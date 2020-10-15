@@ -17,7 +17,7 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <table class="table table-hover">
+                        <table id="example" class="display" style="width:100%">
                             <thead class="bg-primary text-light">
                                 <tr>
                                     <th scope="col">#</th>
@@ -46,7 +46,7 @@
                 </div>
                 <form class="needs-validation" id="form-theme" novalidate method="POST" action="<?= base_url('Soal/KunciSMP/'); ?>">
                     <div class="modal-body">
-                        
+
                         <div class="form-group">
                             <label for="inputPaket">Paket</label>
                             <select id="inputPaket" class="form-control" name="paket" required>
@@ -58,8 +58,8 @@
                             <div class="invalid-feedback">
                                 Tolong Pilih Salah Satu Paket
                             </div>
-                            </div>
-                        
+                        </div>
+
                         <div class="form-group">
                             <label for="exampleInputNameKunci">Nama Kunci</label>
                             <input type="text" class="form-control" id="exampleInputNameKunci" placeholder="Masukkan Nama Kunci" name="nama_bab" required>

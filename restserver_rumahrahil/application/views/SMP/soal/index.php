@@ -17,7 +17,7 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <table class="table table-hover">
+                        <table id="example" class="display" style="width:100%">
                             <thead class="bg-primary text-light">
                                 <tr>
                                     <th scope="col">#</th>
@@ -72,8 +72,8 @@
                         <div class="form-group">
                             <label for="exampleInputNameGambar">Soal Gambar</label>
                             <input type="text" class="form-control" id="exampleInputNameGambar" placeholder="Masukkan Soal Gambar" name="soal_gambar" required>
-                       </div>
-                       <div class="form-group">
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputNameSuara">Soal Suara</label>
                             <input type="text" class="form-control" id="exampleInputNameSuara" placeholder="Masukkan Soal Suara" name="soal_suara" required>
                         </div>
