@@ -11,6 +11,7 @@
     </tr>
     <?php $i++; ?>
 <?php endforeach; ?>
+
 <?php foreach ($tema as $tm) : ?>
     <div class="modal fade" id="updateModal<?= $tm['id_tema_sd']; ?>" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel<?= $tm['id_tema_sd']; ?>" aria-hidden="true">
         <div class="modal-dialog" role="document">

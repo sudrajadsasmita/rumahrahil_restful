@@ -42,13 +42,16 @@
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
-
 <script src="<?= base_url('asset/'); ?>vendor/jquery/jquery.min.js"></script>
 <script src="<?= base_url('asset/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url('asset/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 <script src="<?= base_url('asset/'); ?>js/ruang-admin.min.js"></script>
 
 <script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
     (function() {
         'use strict';
         window.addEventListener('load', function() {

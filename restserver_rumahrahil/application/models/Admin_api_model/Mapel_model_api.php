@@ -41,10 +41,17 @@ class Mapel_model_api extends CI_Model
         return $this->db->affected_rows();
     }
 
-    public function getMapelSMP()
+    public function getMapelSMP($id = null)
     {
-        return $this->db->query("SELECT tb_mapel.id_mapel, tb_mapel.kelas_id, tb_kelas.id_kelas, tb_kelas.nama_kelas, tb_mapel.nama_mapel
+        if ($id === null) {
+            return $this->db->query("SELECT tb_mapel.id_mapel, tb_mapel.kelas_id, tb_kelas.id_kelas, tb_kelas.nama_kelas, tb_mapel.nama_mapel
                                     FROM tb_kelas JOIN tb_mapel 
                                     ON tb_kelas.id_kelas = tb_mapel.kelas_id")->result_array();
+        } else {
+            return $this->db->query("SELECT tb_mapel.id_mapel, tb_mapel.kelas_id, tb_kelas.id_kelas, tb_kelas.nama_kelas, tb_mapel.nama_mapel
+                                    FROM tb_kelas JOIN tb_mapel 
+                                    ON tb_kelas.id_kelas = tb_mapel.kelas_id
+                                    WHERE tb_mapel.id_mapel = $id")->row_array();
+        }
     }
 }
