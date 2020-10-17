@@ -3,60 +3,80 @@
         <div class="col-md-12">
             <h1 class="text-center">Soal SD</h1>
             <div class="row mt-3">
-            <div class="col-md-12">
-                <h5 class="text-left">Tema 1 : </h5>
+                <div class="col-md-12">
+                    <h5 class="text-left">Tema 1 : </h5>
+                </div>
             </div>
-            </div>
-                <div class="table table-hover">
+            <div class="table table-hover">
+                <?php foreach ($soal as $s) : ?>
                     <div class="container">
                         <div class="row">
-                        <div class="col-md-2">No. Soal</div>
-                        <div class="col-md-10">Soal</div>
-                        <ul class="list_group">
-                            <?php foreach ($soal as $s) : ?>
-                                <div scope="col"><?= $s['no_soal']?></div>
-                                <div scope="col"><?= $s['soal_text']?></div>   
-                                
+                            <div class="col-md-1"><?= $s['no_soal_id'] ?></div>
+                            <div class="col-md-10"><?= $s['soal_text'] ?></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <!--Radio buttons-->
                                 <div class="input-group">
-                                <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input type="radio" aria-label="text1">     A
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="radio" name="jawaban" id="jawaban">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="a. ashnflh" readonly>
                                 </div>
-                                </div>
-                                    <input type="text" class="form-control" aria-label="radio1">
-                                </div>
-
+                                <!--Radio buttons-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <!--Radio buttons-->
                                 <div class="input-group">
-                                <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input type="radio" aria-label="text2"> B
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="radio" name="jawaban" id="jawaban">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="a. ashnflh" readonly>
                                 </div>
-                                </div>
-                                    <input type="text" class="form-control" aria-label="radio2">
-                                </div>
-
+                                <!--Radio buttons-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <!--Radio buttons-->
                                 <div class="input-group">
-                                <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input type="radio" aria-label="text3"> C
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="radio" name="jawaban" id="jawaban">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="a. ashnflh" readonly>
                                 </div>
-                                </div>
-                                    <input type="text" class="form-control" aria-label="radio3">
-                                </div>
-
+                                <!--Radio buttons-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <!--Radio buttons-->
                                 <div class="input-group">
-                                <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input type="radio" aria-label="text4"> D
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="radio" name="jawaban" id="jawaban">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="a. ashnflh" readonly>
                                 </div>
-                                </div>
-                                    <input type="text" class="form-control" aria-label="radio4">
-                                </div>
-                            <?php endforeach;?>
-                            </ul>
+                                <!--Radio buttons-->
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
 

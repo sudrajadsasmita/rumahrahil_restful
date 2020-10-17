@@ -18,7 +18,7 @@ class Soal_model extends CI_model
     //get data soal
     public function getSoal()
     {
-        $response = $this->_client->request('GET', 'Soal_latihan_api', [
+        $response = $this->_client->request('GET', 'Soal_sd_api', [
             'query' => [
                 'rahil_key' => 'rumahrahileducation' 
             ]
