@@ -23,7 +23,7 @@
     <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
     <meta name="author" content="BootstrapDash">
 
-    <title><?php echo $judul; ?></title>
+    <title><?php echo $title; ?></title>
 
     <!-- vendor css -->
     <link href="<?= base_url('assets/'); ?>lib/fontawesome-free/css/all.min.css" rel="stylesheet">

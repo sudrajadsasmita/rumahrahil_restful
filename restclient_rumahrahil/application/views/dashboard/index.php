@@ -9,18 +9,16 @@
             </div><!-- az-dashboard-one-title -->
             <div class="row row-sm mg-b-20">
                 <div class="col-lg-7 ht-lg-90p">
-                    <div class="card card-dashboard-one ">
-                        <div id="card" class="card mb-3" style="max-width: 930px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4" style="height: 365px;">
-                                    <img src="<?= base_url('assets'); ?>/img/boy.png" class="card-img">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?= $user['nama']; ?></h5>
-                                        <p class="card-text"><?= $user['asal_sekolah']; ?></p>
-                                        <p class="card-text"><small class="text-muted"><?= $user['email']; ?></small></p>
-                                    </div>
+                    <div class="card card-dashboard-one p-1">
+                        <div class="row no-gutters">
+                            <div class="col-md-4" style="height: 365px;">
+                                <img src="<?= base_url('assets'); ?>/img/boy.png" class="card-img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $user['nama']; ?></h5>
+                                    <p class="card-text"><?= $user['asal_sekolah']; ?></p>
+                                    <p class="card-text"><small class="text-muted"><?= $user['email']; ?></small></p>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +81,40 @@
                     </div><!-- row -->
                 </div>
                 <!--col -->
-            </div><!-- row -->
+            </div>
+            <!-- row -->
+            <hr>
+            <div class="text-center">
+                <h3>Daftar Ujian</h3>
+            </div>
+            <div class="table-responsive">
+                <table id="example" class="display text-center" style="width:100%">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th scope="col" style="color: white;">#</th>
+                            <th scope="col" style="color: white;">Tema</th>
+                            <th scope="col" style="color: white;">Sub Tema</th>
+                            <th scope="col" style="color: white;">Paket</th>
+                            <th scope="col" style="color: white;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ($paket as $p) : ?>
+                            <tr>
+                                <th scope="row"><?= $i; ?></th>
+                                <td><?= $p['nama_tema']; ?></td>
+                                <td><?= $p['nama_subtema']; ?></td>
+                                <td><?= $p['nama_paket_sd']; ?></td>
+                                <td>
+                                    <a href="" class="btn btn-primary"><i class="far fa-paper-plane mr-2"></i>Mulai Ujian</a>
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div><!-- az-content-body -->
     </div>
 </div><!-- az-content -->

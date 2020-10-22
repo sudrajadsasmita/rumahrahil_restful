@@ -1,17 +1,17 @@
-<div id="footer" class="az-footer ht-40 na">
-    <div class="container ht-100p pd-t-0-f">
-        <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
-    </div><!-- container -->
-</div><!-- az-footer -->
+<hr>
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>copyright &copy; <script>
+                    document.write(new Date().getFullYear());
+                </script> - developed by
+                <b><a>Private Coding</a></b>
+            </span>
+        </div>
+    </div>
+</footer>
 
-<style>
-    #footer {
-        position: fixed;
-        height: 100px;
-        bottom: 0;
-        width: 100%;
-    }
-</style>
+
 <script src="<?= base_url('assets/'); ?>lib/jquery/jquery.min.js"></script>
 <script src="<?= base_url('assets/'); ?>lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url('assets/'); ?>lib/ionicons/ionicons.js"></script>
@@ -19,11 +19,10 @@
 <script src="<?= base_url('assets/'); ?>lib/jquery.flot/jquery.flot.resize.js"></script>
 <script src="<?= base_url('assets/'); ?>lib/chart.js/Chart.bundle.min.js"></script>
 <script src="<?= base_url('assets/'); ?>lib/peity/jquery.peity.min.js"></script>
-
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 <script src="<?= base_url('assets/'); ?>js/azia.js"></script>
 <script src="<?= base_url('assets/'); ?>js/chart.flot.sampledata.js"></script>
 <script src="<?= base_url('assets/'); ?>js/dashboard.sampledata.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 <script>
     $(function() {
         'use strict'
@@ -242,6 +241,9 @@
             options: optionpie
         });
 
+    });
+    $(document).ready(function() {
+        $('#example').DataTable();
     });
 </script>
 </body>

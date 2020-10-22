@@ -20,9 +20,9 @@ class Paket_sd_api extends REST_Controller
     {
         $paketsd = $this->get('id_paket_latihan_sd');
         if ($paketsd === null) {
-            $getpaketsd = $this->api->getPaketsd();
+            $getpaketsd = $this->api->getPaketForAPI();
         } else {
-            $getpaketsd = $this->api->getPaketsd($paketsd);
+            $getpaketsd = $this->api->getPaketForAPI($paketsd);
         }
         if ($getpaketsd) {
             $this->response([
@@ -68,7 +68,7 @@ class Paket_sd_api extends REST_Controller
             'id_paket_latihan_sd' => $this->post('id_paket_latihan_sd'),
             'subtema_sd_id' => $this->post('subtema_sd_id'),
             'nama_paket_ujian' => $this->post('nama_paket_ujian')
-            
+
 
         ];
         if ($this->api->createPaketsd($data) > 0) {
