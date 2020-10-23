@@ -107,7 +107,7 @@
                                 <td><?= $p['nama_subtema']; ?></td>
                                 <td><?= $p['nama_paket_sd']; ?></td>
                                 <td>
-                                    <a href="" class="btn btn-primary"><i class="far fa-paper-plane mr-2"></i>Mulai Ujian</a>
+                                    <a href="<?= base_url('SD/Soal/index/') . $p['id_paket_latihan_sd']; ?>" class="btn btn-primary" onclick="return confirm('Apa anda yakin memulai tes online?')"><i class="far fa-paper-plane mr-2"></i>Mulai Ujian</a>
                                 </td>
                             </tr>
                             <?php $i++; ?>

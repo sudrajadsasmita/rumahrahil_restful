@@ -7,7 +7,25 @@ class Soal_sd_model_api extends CI_Model
         if ($soalsd === null) {
             return $this->db->get('tb_soal_latihan_sd')->result_array();
         } else {
-            return $this->db->get_where('tb_soal_latihan_sd', ['id_soal_latihan_sd' => $soalsd])->result_array();
+            return $this->db->get_where('tb_soal_latihan_sd', ['id_paket_latihan_sd' => $soalsd])->result_array();
+        }
+    }
+
+    public function getSoalSdForAPI($soalsd = null)
+    {
+        if ($soalsd === null) {
+            return $this->db->query("SELECT sls.id_soal_latihan_sd, tkj.jawaban_benar, 
+                                        sls.no_soal_id, sls.soal_text, sls.soal_gambar, sls.soal_suara, jls.option_a, jls.option_b, jls.option_c, jls.option_d 
+                                        FROM tb_kunci_jawaban_sd tkj 
+                                        JOIN tb_soal_latihan_sd sls ON tkj.id_kunci_jawaban_sd = sls.kunci_jawaban_sd_id 
+                                        JOIN tb_jawaban_latihan_sd jls ON sls.id_soal_latihan_sd = jls.soal_latihan_sd_id")->result_array();
+        } else {
+            return $this->db->query("SELECT sls.id_soal_latihan_sd, tkj.jawaban_benar, 
+                                        sls.no_soal_id, sls.soal_text, sls.soal_gambar, sls.soal_suara, jls.option_a, jls.option_b, jls.option_c, jls.option_d 
+                                        FROM tb_kunci_jawaban_sd tkj 
+                                        JOIN tb_soal_latihan_sd sls ON tkj.id_kunci_jawaban_sd = sls.kunci_jawaban_sd_id 
+                                        JOIN tb_jawaban_latihan_sd jls ON sls.id_soal_latihan_sd = jls.soal_latihan_sd_id
+                                        WHERE sls.paket_latihan_sd_id = $soalsd")->result_array();
         }
     }
 

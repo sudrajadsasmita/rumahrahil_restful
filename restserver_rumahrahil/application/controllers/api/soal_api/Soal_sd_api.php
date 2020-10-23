@@ -18,11 +18,11 @@ class Soal_sd_api extends REST_Controller
     }
     public function index_get()
     {
-        $soalsd = $this->get('id_soal_latihan_sd');
+        $soalsd = $this->get('paket_latihan_sd_id');
         if ($soalsd === null) {
-            $getsoalsd = $this->api->getSoalsd();
+            $getsoalsd = $this->api->getSoalSdForAPI();
         } else {
-            $getsoalsd = $this->api->getSoalsd($soalsd);
+            $getsoalsd = $this->api->getSoalSdForAPI($soalsd);
         }
         if ($getsoalsd) {
             $this->response([
@@ -67,7 +67,7 @@ class Soal_sd_api extends REST_Controller
         $data = [
             'id_soal_latihan_sd' => $this->post('id_soal_latihan_sd'),
             'paket_latihan_sd_id' => $this->post('paket_latihan_sd_id'),
-            'soal_text' => $this->post('soal_text'), 
+            'soal_text' => $this->post('soal_text'),
             'soal_gambar' => $this->post('soal_gambar'),
             'soal_suara' => $this->post('soal_suara')
 
@@ -91,7 +91,7 @@ class Soal_sd_api extends REST_Controller
         $data = [
             'id_soal_latihan_sd' => $this->put('id_soal_latihan_sd'),
             'paket_latihan_sd_id' => $this->put('paket_latihan_sd_id'),
-            'soal_text' => $this->put('soal_text'), 
+            'soal_text' => $this->put('soal_text'),
             'soal_gambar' => $this->put('soal_gambar'),
             'soal_suara' => $this->put('soal_suara')
         ];

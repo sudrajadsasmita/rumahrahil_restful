@@ -317,6 +317,26 @@
             xhttp.send();
 
         }
+
+        function inputNoSoalSdForJawaban() {
+            let a = document.getElementById('no_soal_sd').value;
+            let b = document.getElementById('nama_paket_sd').value;
+            pilihSoalGambarForJawaban(a, b);
+            pilihSoalTextForJawaban(a, b);
+        }
+
+        function pilihSoalTextForJawaban(a, b) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("soal_text").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "<?= base_url('Sd_Controllers/JawabanSd/selectSoal/'); ?>" + a + "/" + b, true);
+            xhttp.send();
+
+        }
         <?php foreach ($jawaban as $j) : ?>
 
             function inputKunciSDForJawaban<?= $j['id_jawaban_latihan_sd']; ?>() {
