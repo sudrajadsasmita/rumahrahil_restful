@@ -18,11 +18,12 @@ class Soal extends CI_Controller
         $data['user'] = $this->user->getUserWhereEmail($email);
         $data['title'] = 'Tes Online';
         $data['soal'] = $this->Soal_model->getSoal($id);
-        // var_dump($data['soal']);
+        // var_dump($id);
         // die;
-        // $this->load->view('templates/header_soal', $data);
-        // $this->load->view('templates/sidebar_soal', $data);
+        $this->load->view('templates/header_soal', $data);
+        $this->load->view('templates/sidebar_soal', $data);
         $this->load->view('soal/index', $data);
-        // $this->load->view('templates/footer_soal', $data);
+        $this->load->view('templates/footer_soal', $data);
+
     }
 }
