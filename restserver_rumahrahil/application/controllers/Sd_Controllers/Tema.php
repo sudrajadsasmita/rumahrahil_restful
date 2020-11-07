@@ -18,51 +18,52 @@ class Tema extends CI_Controller
         $email = $this->session->userdata('email');
         $data['user'] = $this->user->getUserWhereEmail($email);
         $data['kelas'] = $this->kelas->getKelasSD();
-        $data['jawaban'] = $this->jawaban->getJawabanSdJoinWithAllItems();
-        $data['soal'] = $this->soal->getSoalSdJoinWithAllItem();
-        $data['tema']['tema'] = $this->tema->getTemaJoinKelas();
         $data['title'] = 'Tema';
-        if ($this->input->post('kelas') == null) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('SD/tema/index', $data);
-            $this->load->view('templates/footer', $data);
-        } else {
-            $data = [
-                'kelas_id' => $this->input->post('kelas'),
-                'nama_tema' => $this->input->post('nama_tema')
-            ];
-            $this->tema->createTema($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Tambah data Berhasil</div>');
-            redirect('Sd_Controllers/Tema');
-        }
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('SD/tema/index', $data);
+        $this->load->view('templates/footer', $data);
     }
 
-    public function updateTheme($id)
+    public function readTheme()
+    {
+        $data = $this->tema->getTemaJoinKelas();
+        echo json_encode($data);
+    }
+
+    public function insertTheme()
     {
         $data = [
             'kelas_id' => $this->input->post('kelas'),
-            'nama_tema' => $this->input->post('nama_tema')
+            'nama_tema' => $this->input->post('tema')
         ];
-        $this->tema->updateTema($data, $id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Update data Berhasil</div>');
-        redirect('Sd_Controllers/Tema');
+        $value = $this->tema->createTema($data);
+        echo json_encode($value);
     }
 
-    public function tableTema($val)
+    public function getIdTheme()
     {
-        if ($val == 'all') {
-            $data['tema'] = $this->tema->getTemaJoinKelas();
-        } else {
-            $data['tema'] = $this->tema->getTemaJoinKelas($val);
-        }
-        $this->load->view('SD/tema/table-tema', $data);
+        $id = $this->input->get('id');
+        $data = $this->tema->getTema($id);
+        echo json_encode($data);
     }
-    public function deleteTheme($id)
+
+    public function updateTheme()
     {
-        $this->tema->deleteTema($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Hapus data Berhasil</div>');
-        redirect('Sd_Controllers/Tema');
+        $id = $this->input->post('id');
+        $data = [
+            'kelas_id' => $this->input->post('kelas'),
+            'nama_tema' => $this->input->post('tema')
+        ];
+        $value = $this->tema->updateTema($data, $id);
+        echo json_encode($value);
+    }
+
+    public function deleteTheme()
+    {
+        $id = $this->input->post('id');
+        $data = $this->tema->deleteTema($id);
+        echo json_encode($data);
     }
 }

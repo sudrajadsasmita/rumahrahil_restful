@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+    <link href="<?= base_url('asset/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <style>
         .sidebar {
             height: 100%;
@@ -157,7 +158,7 @@
     <section>
         <div class="container mt-5">
             <?php $i = 1; ?>
-            <form action="" method="post">
+            <form action="<?= base_url('SD/soal/processAnswer/' . $id); ?>" method="post">
                 <?php foreach ($soal as $s) : ?>
                     <div class="card" id="soal<?= $i; ?>">
                         <div class="card-body">
@@ -171,31 +172,33 @@
 
                                     </div>
                                     <div class="col-sm-3">
-                                        <button class="openbtn ml-5" onclick="openNav()">&#9776; Daftar Soal</button>
+                                        <a class="openbtn ml-5 text-light" onclick="openNav()">&#9776; Daftar Soal</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-header">
                                     <h5><?= $s['soal_text']; ?></h5>
-                                    <img src="cms.png" class="rounded float-left" alt="...">
+                                    <?php if ($s['soal_gambar'] != 'http://localhost/rumahrahil_restful/restserver_rumahrahil/assets/img/default.png') : ?>
+                                        <img src="<?= $s['soal_gambar']; ?>" class="rounded float-left" width="300px">
+                                    <?php endif; ?>
                                 </div>
                                 <div class="card-body">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio1"><?= $s['option_a']; ?></label>
+                                        <input type="radio" id="customRadio1<?= $s['id_soal_latihan_sd']; ?>" name="customRadio<?= $i - 1; ?>" class="custom-control-input" value="A">
+                                        <label class="custom-control-label" for="customRadio1<?= $s['id_soal_latihan_sd']; ?>"><?= $s['option_a']; ?></label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2"><?= $s['option_b']; ?></label>
+                                        <input type="radio" id="customRadio2<?= $s['id_soal_latihan_sd']; ?>" name="customRadio<?= $i - 1; ?>" class="custom-control-input" value="B">
+                                        <label class="custom-control-label" for="customRadio2<?= $s['id_soal_latihan_sd']; ?>"><?= $s['option_b']; ?></label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio3"><?= $s['option_c']; ?></label>
+                                        <input type="radio" id="customRadio3<?= $s['id_soal_latihan_sd']; ?>" name="customRadio<?= $i - 1; ?>" class="custom-control-input" value="C">
+                                        <label class="custom-control-label" for="customRadio3<?= $s['id_soal_latihan_sd']; ?>"><?= $s['option_c']; ?></label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio4"><?= $s['option_d']; ?></label>
+                                        <input type="radio" id="customRadio4<?= $s['id_soal_latihan_sd']; ?>" name="customRadio<?= $i - 1; ?>" class="custom-control-input" value="D">
+                                        <label class="custom-control-label" for="customRadio4<?= $s['id_soal_latihan_sd']; ?>"><?= $s['option_d']; ?></label>
                                     </div>
                                 </div>
                             </div>
@@ -238,7 +241,6 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
-    <script src="assets/js/fontawesome.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <script>

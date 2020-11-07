@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Okt 2020 pada 04.43
+-- Waktu pembuatan: 07 Nov 2020 pada 04.40
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -60,6 +60,13 @@ CREATE TABLE `tb_bab_latihan` (
   `nama_bab` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tb_bab_latihan`
+--
+
+INSERT INTO `tb_bab_latihan` (`id_bab_latihan`, `jurusan_id`, `mapel_id`, `jenjang_id`, `kelas_id`, `nama_bab`) VALUES
+(1, NULL, 1, 2, 7, 'Besaran Satuan');
+
 -- --------------------------------------------------------
 
 --
@@ -84,7 +91,8 @@ CREATE TABLE `tb_jawaban_latihan` (
 
 CREATE TABLE `tb_jawaban_latihan_sd` (
   `id_jawaban_latihan_sd` int(11) NOT NULL,
-  `soal_latihan_sd_id` int(11) NOT NULL,
+  `paket_latihan_sd_id` int(11) NOT NULL,
+  `no_soal_id` int(11) NOT NULL,
   `option_a` varchar(128) NOT NULL,
   `option_b` varchar(128) NOT NULL,
   `option_c` varchar(128) NOT NULL,
@@ -95,9 +103,11 @@ CREATE TABLE `tb_jawaban_latihan_sd` (
 -- Dumping data untuk tabel `tb_jawaban_latihan_sd`
 --
 
-INSERT INTO `tb_jawaban_latihan_sd` (`id_jawaban_latihan_sd`, `soal_latihan_sd_id`, `option_a`, `option_b`, `option_c`, `option_d`) VALUES
-(1, 5, 'a', 'v', 'd', 'gak'),
-(2, 6, 'a', 'v', 'd', 'd');
+INSERT INTO `tb_jawaban_latihan_sd` (`id_jawaban_latihan_sd`, `paket_latihan_sd_id`, `no_soal_id`, `option_a`, `option_b`, `option_c`, `option_d`) VALUES
+(7, 7, 1, 'dsa', 'dsa', 'dsa', 'dsa'),
+(8, 7, 2, 'dsa', 'dsa', 'dsa', 'dsa'),
+(9, 7, 2, 'dsa', 'dsa', 'dsa', 'dsa'),
+(10, 7, 2, 'dsa', 'dsa', 'dsa', 'dsa');
 
 -- --------------------------------------------------------
 
@@ -213,17 +223,10 @@ CREATE TABLE `tb_kunci_jawaban_sd` (
 --
 
 INSERT INTO `tb_kunci_jawaban_sd` (`id_kunci_jawaban_sd`, `paket_latihan_sd_id`, `no_soal_id`, `jawaban_benar`) VALUES
-(1, 2, 1, 'A'),
-(2, 2, 2, 'D'),
-(3, 2, 3, 'D'),
-(4, 2, 4, 'C'),
-(5, 2, 5, 'B'),
-(6, 1, 1, 'A'),
-(7, 1, 2, 'B'),
-(8, 1, 3, 'C'),
-(9, 1, 4, 'A'),
-(10, 1, 5, 'D'),
-(11, 1, 6, 'C');
+(12, 7, 1, 'A'),
+(13, 7, 2, 'D'),
+(14, 7, 2, 'D'),
+(15, 7, 2, 'D');
 
 -- --------------------------------------------------------
 
@@ -248,6 +251,37 @@ CREATE TABLE `tb_mapel` (
   `kelas_id` int(11) NOT NULL,
   `nama_mapel` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_mapel`
+--
+
+INSERT INTO `tb_mapel` (`id_mapel`, `kelas_id`, `nama_mapel`) VALUES
+(1, 7, 'IPA'),
+(2, 7, 'IPS'),
+(3, 8, 'IPA'),
+(4, 8, 'IPS');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_menu_backend`
+--
+
+CREATE TABLE `tb_menu_backend` (
+  `id_menu` int(11) NOT NULL,
+  `menu` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_menu_backend`
+--
+
+INSERT INTO `tb_menu_backend` (`id_menu`, `menu`) VALUES
+(1, 'SD'),
+(2, 'SMP'),
+(3, 'SMA'),
+(4, 'TES');
 
 -- --------------------------------------------------------
 
@@ -384,10 +418,8 @@ CREATE TABLE `tb_paket_latihan_sd` (
 --
 
 INSERT INTO `tb_paket_latihan_sd` (`id_paket_latihan_sd`, `subtema_sd_id`, `nama_paket_sd`) VALUES
-(1, 1, 'Paket 2'),
-(2, 3, 'Paket 1'),
-(4, 4, 'Paket 3'),
-(5, 1, 'Paket 5');
+(7, 7, 'Paket 1'),
+(8, 8, 'Paket 2');
 
 -- --------------------------------------------------------
 
@@ -448,22 +480,27 @@ CREATE TABLE `tb_soal_latihan` (
 CREATE TABLE `tb_soal_latihan_sd` (
   `id_soal_latihan_sd` int(11) NOT NULL,
   `paket_latihan_sd_id` int(11) NOT NULL,
-  `kunci_jawaban_sd_id` int(11) NOT NULL,
   `no_soal_id` int(11) NOT NULL,
   `soal_text` text NOT NULL,
   `soal_gambar` varchar(256) DEFAULT NULL,
-  `soal_suara` varchar(256) DEFAULT NULL
+  `soal_suara` varchar(256) DEFAULT NULL,
+  `option_a` varchar(256) NOT NULL,
+  `option_b` varchar(256) NOT NULL,
+  `option_c` varchar(256) NOT NULL,
+  `option_d` varchar(256) NOT NULL,
+  `jawaban_benar` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_soal_latihan_sd`
 --
 
-INSERT INTO `tb_soal_latihan_sd` (`id_soal_latihan_sd`, `paket_latihan_sd_id`, `kunci_jawaban_sd_id`, `no_soal_id`, `soal_text`, `soal_gambar`, `soal_suara`) VALUES
-(5, 2, 1, 1, 'Berapa jumlah rumpt di taman?', 'default.png', NULL),
-(6, 2, 2, 2, 'Berapa jumlah semut yang membawa gula?', 'default.png', NULL),
-(7, 2, 3, 3, 'Berapa volume air di selokan taman?', 'default.png', NULL),
-(8, 1, 6, 1, 'dfersdrfew', 'default.png', NULL);
+INSERT INTO `tb_soal_latihan_sd` (`id_soal_latihan_sd`, `paket_latihan_sd_id`, `no_soal_id`, `soal_text`, `soal_gambar`, `soal_suara`, `option_a`, `option_b`, `option_c`, `option_d`, `jawaban_benar`) VALUES
+(41, 7, 1, 'sada', 'http://localhost/rumahrahil_restful/restserver_rumahrahil/assets/img/20160307_123051_-_Copy.jpg', '', 'a', 's', 'a', 'q', 'A'),
+(42, 7, 2, 'dsa', 'http://localhost/rumahrahil_restful/restserver_rumahrahil/assets/img/default.png', '', 'a', 'dsa', 'e', 'q', 'B'),
+(43, 7, 3, 'dsaasfsfa', 'http://localhost/rumahrahil_restful/restserver_rumahrahil/assets/img/default.png', '', 'a', 'd', 'a', 'dsa', 'C'),
+(44, 7, 4, 'dgs', 'http://localhost/rumahrahil_restful/restserver_rumahrahil/assets/img/default.png', '', 'a', 's', 'f', 'q', 'D'),
+(45, 7, 5, 'gaddagadg', 'http://localhost/rumahrahil_restful/restserver_rumahrahil/assets/img/default.png', '', 'dsa', 'a', 'e', 'w', 'D');
 
 -- --------------------------------------------------------
 
@@ -483,6 +520,20 @@ CREATE TABLE `tb_soal_ujian` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_submenu_backend`
+--
+
+CREATE TABLE `tb_submenu_backend` (
+  `id_submenu` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  `url` varchar(128) NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `icon` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_subtema_sd`
 --
 
@@ -497,9 +548,8 @@ CREATE TABLE `tb_subtema_sd` (
 --
 
 INSERT INTO `tb_subtema_sd` (`id_subtema_sd`, `tema_sd_id`, `nama_subtema`) VALUES
-(1, 1, 'Menentukan waktu sholat di rumah'),
-(3, 3, 'Melakukan kerja bakti '),
-(4, 4, 'Mengorbankan libur di hari minggu untuk ngoding');
+(7, 7, 'Subtema 1'),
+(8, 8, 'Subtema 1');
 
 -- --------------------------------------------------------
 
@@ -518,9 +568,17 @@ CREATE TABLE `tb_tema_sd` (
 --
 
 INSERT INTO `tb_tema_sd` (`id_tema_sd`, `kelas_id`, `nama_tema`) VALUES
-(1, 1, 'Mengenal lingkungan Rumah'),
-(3, 4, 'Bersosial di Lingkungan desa'),
-(4, 5, 'Management waktu di hari minggu');
+(7, 1, 'Tema 1'),
+(8, 2, 'Tema 1'),
+(9, 3, 'Tema 1'),
+(10, 4, 'Tema 1'),
+(11, 5, 'Tema 1'),
+(12, 1, 'Tema 2'),
+(13, 2, 'Tema 2'),
+(14, 3, 'Tema 2'),
+(15, 4, 'Tema 2'),
+(16, 5, 'Tema 2'),
+(17, 6, 'Tema 1');
 
 -- --------------------------------------------------------
 
@@ -628,6 +686,12 @@ ALTER TABLE `tb_mapel`
   ADD PRIMARY KEY (`id_mapel`);
 
 --
+-- Indeks untuk tabel `tb_menu_backend`
+--
+ALTER TABLE `tb_menu_backend`
+  ADD PRIMARY KEY (`id_menu`);
+
+--
 -- Indeks untuk tabel `tb_nilai_latihan`
 --
 ALTER TABLE `tb_nilai_latihan`
@@ -694,6 +758,12 @@ ALTER TABLE `tb_soal_ujian`
   ADD PRIMARY KEY (`id_soal_ujian`);
 
 --
+-- Indeks untuk tabel `tb_submenu_backend`
+--
+ALTER TABLE `tb_submenu_backend`
+  ADD PRIMARY KEY (`id_submenu`);
+
+--
 -- Indeks untuk tabel `tb_subtema_sd`
 --
 ALTER TABLE `tb_subtema_sd`
@@ -725,7 +795,7 @@ ALTER TABLE `keys`
 -- AUTO_INCREMENT untuk tabel `tb_bab_latihan`
 --
 ALTER TABLE `tb_bab_latihan`
-  MODIFY `id_bab_latihan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_bab_latihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_jawaban_latihan`
@@ -737,7 +807,7 @@ ALTER TABLE `tb_jawaban_latihan`
 -- AUTO_INCREMENT untuk tabel `tb_jawaban_latihan_sd`
 --
 ALTER TABLE `tb_jawaban_latihan_sd`
-  MODIFY `id_jawaban_latihan_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jawaban_latihan_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_jawaban_ujian`
@@ -773,7 +843,7 @@ ALTER TABLE `tb_kunci_jawaban_latihan`
 -- AUTO_INCREMENT untuk tabel `tb_kunci_jawaban_sd`
 --
 ALTER TABLE `tb_kunci_jawaban_sd`
-  MODIFY `id_kunci_jawaban_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_kunci_jawaban_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_kunci_jawaban_ujian`
@@ -785,7 +855,13 @@ ALTER TABLE `tb_kunci_jawaban_ujian`
 -- AUTO_INCREMENT untuk tabel `tb_mapel`
 --
 ALTER TABLE `tb_mapel`
-  MODIFY `id_mapel` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mapel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_menu_backend`
+--
+ALTER TABLE `tb_menu_backend`
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_nilai_latihan`
@@ -821,7 +897,7 @@ ALTER TABLE `tb_paket_latihan`
 -- AUTO_INCREMENT untuk tabel `tb_paket_latihan_sd`
 --
 ALTER TABLE `tb_paket_latihan_sd`
-  MODIFY `id_paket_latihan_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_paket_latihan_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_paket_ujian`
@@ -845,7 +921,7 @@ ALTER TABLE `tb_soal_latihan`
 -- AUTO_INCREMENT untuk tabel `tb_soal_latihan_sd`
 --
 ALTER TABLE `tb_soal_latihan_sd`
-  MODIFY `id_soal_latihan_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_soal_latihan_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_soal_ujian`
@@ -854,16 +930,22 @@ ALTER TABLE `tb_soal_ujian`
   MODIFY `id_soal_ujian` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_submenu_backend`
+--
+ALTER TABLE `tb_submenu_backend`
+  MODIFY `id_submenu` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_subtema_sd`
 --
 ALTER TABLE `tb_subtema_sd`
-  MODIFY `id_subtema_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_subtema_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_tema_sd`
 --
 ALTER TABLE `tb_tema_sd`
-  MODIFY `id_tema_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_tema_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_user`

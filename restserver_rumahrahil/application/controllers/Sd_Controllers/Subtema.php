@@ -18,49 +18,49 @@ class Subtema extends CI_Controller
         $email = $this->session->userdata('email');
         $data['user'] = $this->user->getUserWhereEmail($email);
         $data['tema'] = $this->tema->getTema();
-        $data['soal'] = $this->soal->getSoalSdJoinWithAllItem();
-        $data['jawaban'] = $this->jawaban->getJawabanSdJoinWithAllItems();
-        $data['subtema']['subtema'] = $this->Subtema->getSubtemaJoinWithTema();
         $data['title'] = 'Subtema';
-        if ($this->input->post('nama_tema') == null) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('SD/subtema/index', $data);
-            $this->load->view('templates/footer', $data);
-        } else {
-            $data = [
-                'tema_sd_id' => $this->input->post('nama_tema'),
-                'nama_subtema' => $this->input->post('nama_subtema')
-            ];
-            $this->Subtema->createSubtema($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Tambah data Berhasil</div>');
-            redirect('Sd_Controllers/Subtema');
-        }
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('SD/subtema/index', $data);
+        $this->load->view('templates/footer', $data);
     }
-    public function updateSubtema($id)
+    public function insertSubtema()
     {
         $data = [
-            'tema_sd_id' => $this->input->post('nama_tema'),
-            'nama_subtema' => $this->input->post('nama_subtema')
+            'tema_sd_id' => $this->input->post('tema'),
+            'nama_subtema' => $this->input->post('subtema')
         ];
-        $this->Subtema->updateSubtema($data, $id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit data Berhasil</div>');
-        redirect('Sd_Controllers/Subtema');
+        $value = $this->Subtema->createSubtema($data);
+        echo json_encode($value);
     }
-    public function deleteSubtema($id)
+    public function readSubtema()
     {
-        $this->Subtema->deleteSubtema($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Hapus data Berhasil</div>');
-        redirect('Sd_Controllers/Subtema');
+        $data = $this->Subtema->getSubtema();
+        echo json_encode($data);
     }
-    public function tableSubtema($val)
+
+    public function getIdSubtema()
     {
-        if ($val == 'all') {
-            $data['subtema'] = $this->Subtema->getSubtemaJoinWithTema();
-        } else {
-            $data['subtema'] = $this->Subtema->getSubtemaJoinWithTema($val);
-        }
-        $this->load->view('SD/subtema/table-subtema', $data);
+        $id = $this->input->get('id');
+        $data = $this->Subtema->getSubtema($id);
+        echo json_encode($data);
+    }
+
+    public function updateSubtema()
+    {
+        $id = $this->input->post('id');
+        $data = [
+            'tema_sd_id' => $this->input->post('tema'),
+            'nama_subtema' => $this->input->post('subtema')
+        ];
+        $value = $this->Subtema->updateSubtema($data, $id);
+        echo json_encode($value);
+    }
+    public function deleteSubtema()
+    {
+        $id = $this->input->post('id');
+        $data = $this->Subtema->deleteSubtema($id);
+        echo json_encode($data);
     }
 }

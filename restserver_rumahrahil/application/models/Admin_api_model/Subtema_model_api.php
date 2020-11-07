@@ -5,12 +5,19 @@ use GuzzleHttp\Client;
 class Subtema_model_api extends CI_Model
 {
 
-    public function getSubtema($subtema = null)
+    public function getSubtema($id = null)
     {
-        if ($subtema === null) {
-            return $this->db->get('tb_subtema_sd')->result_array();
+        if ($id === null) {
+            return $this->db->query("SELECT tb_tema_sd.nama_tema, tb_subtema_sd.id_subtema_sd, tb_subtema_sd.tema_sd_id, tb_subtema_sd.nama_subtema, tb_tema_sd.kelas_id, tb_kelas.nama_kelas
+            FROM tb_tema_sd JOIN tb_subtema_sd
+            ON tb_tema_sd.id_tema_sd = tb_subtema_sd.tema_sd_id
+            JOIN tb_kelas ON tb_kelas.id_kelas = tb_tema_sd.kelas_id")->result_array();
         } else {
-            return $this->db->get_where('tb_subtema_sd', ['id_subtema_sd' => $subtema])->result_array();
+            return $this->db->query("SELECT tb_tema_sd.nama_tema, tb_subtema_sd.id_subtema_sd, tb_subtema_sd.tema_sd_id, tb_subtema_sd.nama_subtema, tb_tema_sd.kelas_id, tb_kelas.nama_kelas
+            FROM tb_tema_sd JOIN tb_subtema_sd
+            ON tb_tema_sd.id_tema_sd = tb_subtema_sd.tema_sd_id
+            JOIN tb_kelas ON tb_kelas.id_kelas = tb_tema_sd.kelas_id
+            WHERE tb_subtema_sd.id_subtema_sd = $id")->result_array();
         }
     }
     public function getSubtemaJoinWithTema($id = null)

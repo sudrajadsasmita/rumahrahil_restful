@@ -27,9 +27,7 @@
                 <a class="collapse-item" href="<?= base_url('Sd_Controllers/Tema'); ?>">Tema</a>
                 <a class="collapse-item" href="<?= base_url('Sd_Controllers/Subtema'); ?>">Sub Tema</a>
                 <a class="collapse-item" href="<?= base_url('Sd_Controllers/PaketSoalSd'); ?>">Paket Latihan</a>
-                <a class="collapse-item" href="<?= base_url('Sd_Controllers/KunciJawabanSD'); ?>">Kunci Jawaban</a>
                 <a class="collapse-item" href="<?= base_url('Sd_Controllers/SoalSd'); ?>">Soal</a>
-                <a class="collapse-item" href="<?= base_url('Sd_controllers/JawabanSd'); ?>">Option Jawaban</a>
             </div>
         </div>
     </li>

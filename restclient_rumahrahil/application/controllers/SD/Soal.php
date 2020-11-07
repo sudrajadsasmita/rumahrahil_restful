@@ -17,12 +17,42 @@ class Soal extends CI_Controller
         $email = $this->session->userdata('email');
         $data['user'] = $this->user->getUserWhereEmail($email);
         $data['title'] = 'Tes Online';
+        $data['id'] = $id;
         $data['soal'] = $this->Soal_model->getSoal($id);
-        // var_dump($data['soal']);
-        // die;
-        // $this->load->view('templates/header_soal', $data);
-        // $this->load->view('templates/sidebar_soal', $data);
         $this->load->view('soal/index', $data);
-        // $this->load->view('templates/footer_soal', $data);
+    }
+    public function processAnswer($id)
+    {
+        //buat array kosongan untuk kunci jawaban dan jawaban siswa
+        $jawabanSiswa = [];
+
+        $jawabanKunci = [];
+        $counter = 0;
+
+        //ambil kunci jawaban yang ada di database dan masukkan ke array
+        $soal = $this->Soal_model->getSoal($id);
+        $i = 0;
+        foreach ($soal as $s) {
+            $jawabanKunci[$i] = $s['jawaban_benar'];
+            $i++;
+        }
+
+
+        //ambil jawaban yang sudah di inputkan siswa 
+        for ($a = 0; $a < count($_POST); $a++) {
+            $jawabanSiswa[$a] = $this->input->post("customRadio" . $a);
+        }
+        for ($b = 0; $b < count($jawabanKunci); $b++) {
+            if ($jawabanSiswa[$b] === $jawabanKunci[$b]) {
+                $counter++;
+            }
+        }
+
+        //beri penilaian
+        if (count($jawabanKunci) === 5) {
+            $nilai = $counter * 20;
+        }
+        var_dump($nilai);
+        die;
     }
 }

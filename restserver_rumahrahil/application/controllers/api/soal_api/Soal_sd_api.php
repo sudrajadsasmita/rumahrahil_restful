@@ -18,7 +18,7 @@ class Soal_sd_api extends REST_Controller
     }
     public function index_get()
     {
-        $soalsd = $this->get('paket_latihan_sd_id');
+        $soalsd = $this->get('id_paket_latihan_sd');
         if ($soalsd === null) {
             $getsoalsd = $this->api->getSoalSdForAPI();
         } else {

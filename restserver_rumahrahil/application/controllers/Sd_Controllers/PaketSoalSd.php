@@ -18,49 +18,50 @@ class PaketSoalSd extends CI_Controller
         $email = $this->session->userdata('email');
         $data['user'] = $this->user->getUserWhereEmail($email);
         $data['subtema'] = $this->Subtema->getSubtema();
-        $data['soal'] = $this->soal->getSoalSdJoinWithAllItem();
-        $data['jawaban'] = $this->jawaban->getJawabanSdJoinWithAllItems();
-        $data['paket']['paket'] = $this->paket->getPaketsdJoinSubtema();
         $data['title'] = 'Paket Soal SD';
-        if ($this->input->post('nama_subtema') == null) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('SD/paket/index', $data);
-            $this->load->view('templates/footer', $data);
-        } else {
-            $data = [
-                'subtema_sd_id' => $this->input->post('nama_subtema'),
-                'nama_paket_sd' => $this->input->post('paket_soal')
-            ];
-            $this->paket->createPaketsd($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Tambah data Berhasil</div>');
-            redirect('Sd_Controllers/PaketSoalSd');
-        }
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('SD/paket/index', $data);
+        $this->load->view('templates/footer', $data);
     }
-    public function updatePaketsd($id)
+
+    public function readPaketSD()
+    {
+        $data = $this->paket->getPaketSD();
+        echo json_encode($data);
+    }
+
+    public function readPaketSDWhereId()
+    {
+        $id = $this->input->get('id');
+        $data = $this->paket->getPaketSD($id);
+        echo json_encode($data);
+    }
+
+    public function insertPaketSD()
     {
         $data = [
-            'subtema_sd_id' => $this->input->post('nama_subtema'),
-            'nama_paket_sd' => $this->input->post('paket_soal')
+            'subtema_sd_id' => $this->input->post('subtema'),
+            'nama_paket_sd' => $this->input->post('paket')
         ];
-        $this->paket->updatePaketsd($data, $id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit data Berhasil</div>');
-        redirect('Sd_Controllers/PaketSoalSd');
+        $value = $this->paket->createPaketsd($data);
+        echo json_encode($value);
     }
-    function deletePaketsd($id)
+    public function updatePaketsd()
     {
-        $this->paket->deletePaketsd($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Hapus data Berhasil</div>');
-        redirect('Sd_Controllers/PaketSoalSd');
+        $id = $this->input->post('id');
+        $data = [
+            'subtema_sd_id' => $this->input->post('subtema'),
+            'nama_paket_sd' => $this->input->post('paket')
+        ];
+        $value = $this->paket->updatePaketsd($data, $id);
+        echo json_encode($value);
     }
-    public function tablePaketsd($val)
+    function deletePaketsd()
     {
-        if ($val == 'all') {
-            $data['paket'] = $this->paket->getPaketsdJoinSubtema();
-        } else {
-            $data['paket'] = $this->paket->getPaketsdJoinSubtema($val);
-        }
-        $this->load->view('SD/paket/table-paket', $data);
+        $id = $this->input->post('id');
+        $data = $this->paket->deletePaketsd($id);
+        echo json_encode($data);
     }
 }
