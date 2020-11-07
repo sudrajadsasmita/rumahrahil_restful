@@ -56,7 +56,7 @@
                             <div class="card card-dashboard-two">
                                 <div class="card-header">
                                     <h6>TANGGAL</h6>
-                                    <p>Diambil dari API</p>
+                                    <span class="d-block"><?=strftime(' %d %B %Y')?></span>
                                 </div><!-- card-header -->
                                 <div class="card-body">
                                     <div class="chart-wrapper">
@@ -69,7 +69,7 @@
                             <div class="card card-dashboard-two">
                                 <div class="card-header">
                                     <h6>WAKTU</h6>
-                                    <p>Diambil dari API</p>
+                                    <span class="d-block"> <span class="live-clock"><?=date('H:i:s')?></span></span>
                                 </div><!-- card-header -->
                                 <div class="card-body">
                                     <div class="chart-wrapper">
