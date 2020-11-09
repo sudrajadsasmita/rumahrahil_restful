@@ -34,13 +34,21 @@ class Login extends CI_Controller
         $user = $this->user->getUserWhereEmail($email);
         if ($user) {
             if ($password == $user['password']) {
-                if ($user['role_id'] >= 2) {
+                if ($user['role_id'] == 3) {
                     $data = [
                         'email' => $user['email'],
                         'role_id' => $user['role_id']
                     ];
                     $this->session->set_userdata($data);
                     redirect('dashboard');
+                }
+                elseif ($user['role_id'] == 2) {
+                    $data = [
+                        'email' => $user['email'],
+                        'role_id' => $user['role_id']
+                    ];
+                    $this->session->set_userdata($data);
+                    redirect('guru');
                 } else {
                     echo "Harusnya anda tidak masuk sini min !!!";
                 }
