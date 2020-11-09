@@ -21,7 +21,7 @@ class Soal_model extends CI_model
         $response = $this->_client->request('GET', 'Soal_sd_api', [
             'query' => [
                 'rahil_key' => 'rumahrahileducation',
-                'paket_latihan_sd_id' => $id
+                'id_paket_latihan_sd' => $id
             ]
         ]);
         $result = json_decode($response->getBody()->getContents(), true);
