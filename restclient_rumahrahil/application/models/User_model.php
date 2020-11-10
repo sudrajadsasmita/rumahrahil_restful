@@ -48,4 +48,16 @@ class User_model extends CI_model
 
         return $result['data'];
     }
+    public function getUserWhereRole($id)
+    {
+        $response = $this->_client->request('GET', 'User_api', [
+            'query' => [
+                'rahil_key' => 'rumahrahileducation',
+                'email' => $id
+            ]
+        ]);
+        $result = json_decode($response->getBody()->getContents(), true);
+
+        return $result['data'];
+    }
 }
