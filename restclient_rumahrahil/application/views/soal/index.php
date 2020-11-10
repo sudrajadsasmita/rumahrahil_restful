@@ -227,14 +227,6 @@
             <input type="hidden" id="counter" value="<?= $i - 1; ?>">
         </div>
     </section>
-    <section>
-        <div class="footer-copyright text-light text-center py-3 bg-primary fixed-bottom">
-            <span>copyright &copy; <script>
-                    document.write(new Date().getFullYear());
-                </script> - developed by
-                <b><a>Private Coding</a></b>
-        </div>
-    </section>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
