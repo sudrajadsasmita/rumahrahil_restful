@@ -21,6 +21,13 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset/'); ?>css/util.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset/'); ?>css/main.css">
     <!--===============================================================================================-->
+    <style>
+        .card{
+            box-shadow: 0 4px 4px 0 rgba(0,0,0,2);
+            transition: 0.3s; 
+        }
+    </style>
+
 </head>
 
 <body>
@@ -29,9 +36,10 @@
         <div class="container-login100">
             <div class="wrap-login100">
                 <div class="login100-pic js-tilt" data-tilt>
-                    <img src="<?= base_url('asset/'); ?>images/img-01.png" alt="IMG">
+                    <img src="<?= base_url('asset/'); ?>images/favlogo.png" alt="IMG">
                 </div>
 
+                <div class="card card-dashboard-one p-1 m-2">
                 <form method="POST" action="<?= base_url('Login'); ?>" class="login100-form validate-form">
                     <span class="login100-form-title">
                         Member Login
@@ -66,9 +74,7 @@
                         <a class="txt2" href="#">
                             Username / Password?
                         </a>
-                    </div>
-
-                    <div class="text-center p-t-136">
+                        <br><br><br>
                         <a class="txt2" href="<?php echo base_url('login/registrasi') ?>">
                             Create your Account
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
@@ -76,6 +82,7 @@
                     </div>
                 </form>
             </div>
+        </div>
         </div>
     </div>
 
