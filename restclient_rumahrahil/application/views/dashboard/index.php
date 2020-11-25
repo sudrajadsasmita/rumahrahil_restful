@@ -84,37 +84,39 @@
             </div>
             <!-- row -->
             <hr>
-            <div class="text-center">
-                <h3>Daftar Ujian</h3>
-            </div>
-            <div class="table-responsive">
-                <table id="example" class="display text-center" style="width:100%">
-                    <thead class="bg-primary">
-                        <tr>
-                            <th scope="col" style="color: white;">#</th>
-                            <th scope="col" style="color: white;">Tema</th>
-                            <th scope="col" style="color: white;">Sub Tema</th>
-                            <th scope="col" style="color: white;">Paket</th>
-                            <th scope="col" style="color: white;">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1; ?>
-                        <?php foreach ($paket as $p) : ?>
+            <?php if ($roleId == 3) : ?>
+                <div class="text-center">
+                    <h3>Daftar Ujian</h3>
+                </div>
+                <div class="table-responsive">
+                    <table id="example" class="display text-center" style="width:100%">
+                        <thead class="bg-primary">
                             <tr>
-                                <th scope="row"><?= $i; ?></th>
-                                <td><?= $p['nama_tema']; ?></td>
-                                <td><?= $p['nama_subtema']; ?></td>
-                                <td><?= $p['nama_paket_sd']; ?></td>
-                                <td>
-                                    <a href="<?= base_url('SD/Soal/index/') . $p['id_paket_latihan_sd']; ?>" class="btn btn-primary" onclick="return confirm('Apa anda yakin memulai tes online?')"><i class="far fa-paper-plane mr-2"></i>Mulai Ujian</a>
-                                </td>
+                                <th scope="col" style="color: white;">#</th>
+                                <th scope="col" style="color: white;">Tema</th>
+                                <th scope="col" style="color: white;">Sub Tema</th>
+                                <th scope="col" style="color: white;">Paket</th>
+                                <th scope="col" style="color: white;">Action</th>
                             </tr>
-                            <?php $i++; ?>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1; ?>
+                            <?php foreach ($paket as $p) : ?>
+                                <tr>
+                                    <th scope="row"><?= $i; ?></th>
+                                    <td><?= $p['nama_tema']; ?></td>
+                                    <td><?= $p['nama_subtema']; ?></td>
+                                    <td><?= $p['nama_paket_sd']; ?></td>
+                                    <td>
+                                        <a href="<?= base_url('SD/Soal/index/') . $p['id_paket_latihan_sd']; ?>" class="btn btn-primary" onclick="return confirm('Apa anda yakin memulai tes online?')"><i class="far fa-paper-plane mr-2"></i>Mulai Ujian</a>
+                                    </td>
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            <?php endif; ?>
         </div><!-- az-content-body -->
     </div>
 </div><!-- az-content -->

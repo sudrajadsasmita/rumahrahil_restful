@@ -47,7 +47,7 @@ class Login extends CI_Controller
                         'role_id' => $user['role_id']
                     ];
                     $this->session->set_userdata($data);
-                    redirect('guru');
+                    redirect('dashboard');
                 } else {
                     echo "Harusnya anda tidak masuk sini min !!!";
                 }

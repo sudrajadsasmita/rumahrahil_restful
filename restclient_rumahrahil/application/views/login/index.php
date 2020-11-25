@@ -10,7 +10,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset/'); ?>vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url('asset/'); ?>fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset/'); ?>vendor/animate/animate.css">
     <!--===============================================================================================-->
@@ -21,6 +21,18 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset/'); ?>css/util.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset/'); ?>css/main.css">
     <!--===============================================================================================-->
+    <style>
+        .card {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        /* On mouse-over, add a deeper shadow */
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 
 <body>
@@ -28,11 +40,13 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <div class="login100-pic js-tilt" data-tilt>
+                <div class="login100-pic js-tilt mb-136" data-tilt>
                     <img src="<?= base_url('asset/'); ?>images/img-01.png" alt="IMG">
                 </div>
 
                 <form method="POST" action="<?= base_url('Login'); ?>" class="login100-form validate-form">
+
+
                     <span class="login100-form-title">
                         Member Login
                     </span>
@@ -67,6 +81,7 @@
                             Username / Password?
                         </a>
                     </div>
+
 
                     <div class="text-center p-t-136">
                         <a class="txt2" href="<?php echo base_url('login/registrasi') ?>">

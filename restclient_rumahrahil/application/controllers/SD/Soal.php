@@ -19,10 +19,14 @@ class Soal extends CI_Controller
         $data['title'] = 'Tes Online';
         $data['id'] = $id;
         $data['soal'] = $this->Soal_model->getSoal($id);
+        $this->load->view('templates/header_soal', $data);
+        $this->load->view('templates/sidebar_soal', $data);
         $this->load->view('soal/index', $data);
+        $this->load->view('templates/footer_soal', $data);
     }
     public function processAnswer($id)
     {
+
         //buat array kosongan untuk kunci jawaban dan jawaban siswa
         $jawabanSiswa = [];
 
@@ -37,7 +41,6 @@ class Soal extends CI_Controller
             $i++;
         }
 
-
         //ambil jawaban yang sudah di inputkan siswa 
         for ($a = 0; $a < count($_POST); $a++) {
             $jawabanSiswa[$a] = $this->input->post("customRadio" . $a);
@@ -49,10 +52,7 @@ class Soal extends CI_Controller
         }
 
         //beri penilaian
-        if (count($jawabanKunci) === 5) {
-            $nilai = $counter * 20;
-        }
-        var_dump($nilai);
-        die;
+        $point = 100 / count($jawabanKunci);
+        $nilai = $counter * $point;
     }
 }

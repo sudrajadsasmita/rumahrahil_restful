@@ -22,6 +22,8 @@ class User_api extends REST_Controller
             $user = $this->get('id_user');
         } elseif ($this->get('email')) {
             $user = $this->get('email');
+        } elseif ($this->get('jenjang_id') && $this->get('kelas_id') && $this->get('role_id')) {
+            $user = $this->get('kelas_id');
         } else {
             $user = null;
         }
@@ -31,6 +33,11 @@ class User_api extends REST_Controller
             $getuser = $this->api->getUser($user);
         } elseif ($user === $this->get('email')) {
             $getuser = $this->api->getUserWhereEmail($user);
+        } elseif ($user === $this->get('kelas_id')) {
+            $jenjang = $this->get('jenjang_id');
+            $kelas = $this->get('kelas_id');
+            $role = $this->get('role_id');
+            $getuser = $this->api->getUserWhereJenjangAndKelas($jenjang, $kelas, $role);
         }
         if ($getuser) {
             $this->response([

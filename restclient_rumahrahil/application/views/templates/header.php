@@ -54,12 +54,16 @@
                     <li class="nav-item active show">
                         <a href="<?= base_url('dashboard'); ?>" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="chart-chartjs.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Nilai</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="form-elements.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Profile</a>
-                    </li>
+                    <?php foreach ($menu as $m) : ?>
+                        <?php if ($title === $m['menu']) : ?>
+                            <li class="nav-item active">
+                            <?php else : ?>
+                            <li class="nav-item">
+                            <?php endif; ?>
+                            <a href="<?= base_url($m['url']); ?>" class="nav-link"><i class="<?= $m['icon']; ?> mr-1"></i> <?= $m['menu']; ?></a>
+                            </li>
+                        <?php endforeach; ?>
+
                 </ul>
             </div><!-- az-header-menu -->
             <div class="az-header-right">
@@ -79,7 +83,7 @@
                             <span>Premium Member</span>
                         </div><!-- az-header-profile -->
 
-                        <a href="<?= base_url('Profile'); ?>" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
+                        <a href="<?= base_url('SD/Profile'); ?>" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
                         <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
                         <a href="<?= base_url('logout') ?>" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
                     </div><!-- dropdown-menu -->

@@ -1,5 +1,5 @@
-<hr>
-<footer class="sticky-footer bg-white">
+<footer class="sticky-footer bg-white fixed-bottom">
+    <hr>
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             <span>copyright &copy; <script>

@@ -32,6 +32,10 @@ class User_model_api extends CI_Model
                                     JOIN tb_jenjang je ON je.id_jenjang = u.jenjang_id
                                     JOIN tb_kelas k ON k.id_kelas = u.kelas_id")->result_array();
     }
+    public function getUserWhereJenjangAndKelas($jenjang, $kelas, $role)
+    {
+        return $this->db->get_where('tb_user', ['jenjang_id' => $jenjang, 'kelas_id' => $kelas, 'role_id' => $role])->result_array();
+    }
     public function deleteUser($user)
     {
         $this->db->delete('tb_user', ['id_user' => $user]);

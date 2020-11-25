@@ -5,6 +5,7 @@ use GuzzleHttp\Client;
 class Profile_model extends CI_model
 {
     private $_client;
+    private $key = 'rumahrahileducation';
     public function __construct()
     {
         parent::__construct();
@@ -16,7 +17,7 @@ class Profile_model extends CI_model
     {
         $response = $this->_client->request('GET', 'User_api', [
             'query' => [
-                'rahil_key' => 'rumahrahileducation'
+                'rahil_key' => $this->key
             ]
         ]);
         $result = json_decode($response->getBody()->getContents(), true);
@@ -28,7 +29,7 @@ class Profile_model extends CI_model
     {
         $response = $this->_client->request('GET', 'User_api', [
             'query' => [
-                'rahil_key' => 'rumahrahileducation',
+                'rahil_key' => $this->key,
                 'id_user' => $id
             ]
         ]);
@@ -40,7 +41,7 @@ class Profile_model extends CI_model
     {
         $response = $this->_client->request('GET', 'User_api', [
             'query' => [
-                'rahil_key' => 'rumahrahileducation',
+                'rahil_key' => $this->key,
                 'email' => $id
             ]
         ]);
@@ -48,5 +49,4 @@ class Profile_model extends CI_model
 
         return $result['data'];
     }
-    
 }
