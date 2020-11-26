@@ -31,7 +31,7 @@
                                 <div class="row p-3">
                                     <div class="card-header">
                                         <h6>NISN</h6>
-                                        <p>Diambil dari API</p>
+                                        <p class="h6 mt-3">Diambil dari API</p>
                                     </div><!-- card-header -->
                                     <div class="card-body m-auto">
                                         <div class="chart-wrapper text-center">
@@ -49,7 +49,7 @@
 
                                     <div class="card-header">
                                         <h6>KELAS</h6>
-                                        <p><?= $user['kelas_id']; ?></p>
+                                        <p class="h6 mt-3"><?= $user['kelas_id']; ?></p>
                                     </div><!-- card-header -->
                                     <div class="card-body m-auto">
                                         <div class="chart-wrapper text-center">
@@ -61,12 +61,12 @@
                                 </div><!-- card-body -->
                             </div><!-- card -->
                         </div><!-- col -->
-                        <div class="col-sm-6 mt-3">
+                        <div class="col-sm-6 mt-4">
                             <div class="card card-dashboard-two">
                                 <div class="row p-3">
                                     <div class="card-header">
                                         <h6>TANGGAL</h6>
-                                        <span class="d-block"><?= strftime(' %d %B %Y') ?></span>
+                                        <span class="d-block h6 mt-3"><?= strftime(' %d %B %Y') ?></span>
                                     </div><!-- card-header -->
                                     <div class="card-body m-auto">
                                         <div class="chart-wrapper text-center">
@@ -78,12 +78,12 @@
                                 </div>
                             </div><!-- card -->
                         </div><!-- col -->
-                        <div class="col-sm-6 mt-3">
+                        <div class="col-sm-6 mt-4">
                             <div class="card card-dashboard-two">
                                 <div class="row p-3">
                                     <div class="card-header">
                                         <h6>WAKTU</h6>
-                                        <span class="d-block"> <span class="live-clock"><?= date('H:i:s') ?></span></span>
+                                        <span class="d-block h6 mt-3"> <span class="live-clock"><?= date('H:i:s') ?></span></span>
                                     </div><!-- card-header -->
                                     <div class="card-body m-auto">
                                         <div class="chart-wrapper text-center">

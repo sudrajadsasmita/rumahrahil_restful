@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Nov 2020 pada 04.40
+-- Waktu pembuatan: 26 Nov 2020 pada 04.46
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -82,32 +82,6 @@ CREATE TABLE `tb_jawaban_latihan` (
   `option_c` varchar(128) NOT NULL,
   `option_d` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tb_jawaban_latihan_sd`
---
-
-CREATE TABLE `tb_jawaban_latihan_sd` (
-  `id_jawaban_latihan_sd` int(11) NOT NULL,
-  `paket_latihan_sd_id` int(11) NOT NULL,
-  `no_soal_id` int(11) NOT NULL,
-  `option_a` varchar(128) NOT NULL,
-  `option_b` varchar(128) NOT NULL,
-  `option_c` varchar(128) NOT NULL,
-  `option_d` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tb_jawaban_latihan_sd`
---
-
-INSERT INTO `tb_jawaban_latihan_sd` (`id_jawaban_latihan_sd`, `paket_latihan_sd_id`, `no_soal_id`, `option_a`, `option_b`, `option_c`, `option_d`) VALUES
-(7, 7, 1, 'dsa', 'dsa', 'dsa', 'dsa'),
-(8, 7, 2, 'dsa', 'dsa', 'dsa', 'dsa'),
-(9, 7, 2, 'dsa', 'dsa', 'dsa', 'dsa'),
-(10, 7, 2, 'dsa', 'dsa', 'dsa', 'dsa');
 
 -- --------------------------------------------------------
 
@@ -208,29 +182,6 @@ CREATE TABLE `tb_kunci_jawaban_latihan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kunci_jawaban_sd`
---
-
-CREATE TABLE `tb_kunci_jawaban_sd` (
-  `id_kunci_jawaban_sd` int(11) NOT NULL,
-  `paket_latihan_sd_id` int(11) NOT NULL,
-  `no_soal_id` int(11) NOT NULL,
-  `jawaban_benar` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tb_kunci_jawaban_sd`
---
-
-INSERT INTO `tb_kunci_jawaban_sd` (`id_kunci_jawaban_sd`, `paket_latihan_sd_id`, `no_soal_id`, `jawaban_benar`) VALUES
-(12, 7, 1, 'A'),
-(13, 7, 2, 'D'),
-(14, 7, 2, 'D'),
-(15, 7, 2, 'D');
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `tb_kunci_jawaban_ujian`
 --
 
@@ -282,6 +233,29 @@ INSERT INTO `tb_menu_backend` (`id_menu`, `menu`) VALUES
 (2, 'SMP'),
 (3, 'SMA'),
 (4, 'TES');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_menu_frontend`
+--
+
+CREATE TABLE `tb_menu_frontend` (
+  `id_menu` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `url` varchar(128) NOT NULL,
+  `icon` varchar(128) NOT NULL,
+  `menu` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_menu_frontend`
+--
+
+INSERT INTO `tb_menu_frontend` (`id_menu`, `role_id`, `url`, `icon`, `menu`) VALUES
+(1, 3, 'SD/HasilUjian', 'fas fa-chart-pie', 'Hasil Test'),
+(3, 2, 'SD/HasilUjian', 'fas fa-chart-bar', 'Hasil Ujian Siswa'),
+(4, 2, 'SD/ProfileSiswa', 'fas fa-users', 'Daftar Profile Siswa');
 
 -- --------------------------------------------------------
 
@@ -465,10 +439,16 @@ INSERT INTO `tb_role` (`id_role`, `nama_role`) VALUES
 CREATE TABLE `tb_soal_latihan` (
   `id_soal_latihan` int(11) NOT NULL,
   `paket_latihan_id` int(11) NOT NULL,
-  `no_soal` int(11) NOT NULL,
+  `no_soal_id` int(11) NOT NULL,
   `soal_text` text NOT NULL,
   `soal_gambar` varchar(256) NOT NULL,
-  `soal_suara` varchar(256) NOT NULL
+  `soal_suara` varchar(256) NOT NULL,
+  `option_a` varchar(256) NOT NULL,
+  `option_b` varchar(256) NOT NULL,
+  `option_c` varchar(256) NOT NULL,
+  `option_d` varchar(256) NOT NULL,
+  `option_e` varchar(256) NOT NULL,
+  `jawaban_benar` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -500,7 +480,8 @@ INSERT INTO `tb_soal_latihan_sd` (`id_soal_latihan_sd`, `paket_latihan_sd_id`, `
 (42, 7, 2, 'dsa', 'http://localhost/rumahrahil_restful/restserver_rumahrahil/assets/img/default.png', '', 'a', 'dsa', 'e', 'q', 'B'),
 (43, 7, 3, 'dsaasfsfa', 'http://localhost/rumahrahil_restful/restserver_rumahrahil/assets/img/default.png', '', 'a', 'd', 'a', 'dsa', 'C'),
 (44, 7, 4, 'dgs', 'http://localhost/rumahrahil_restful/restserver_rumahrahil/assets/img/default.png', '', 'a', 's', 'f', 'q', 'D'),
-(45, 7, 5, 'gaddagadg', 'http://localhost/rumahrahil_restful/restserver_rumahrahil/assets/img/default.png', '', 'dsa', 'a', 'e', 'w', 'D');
+(45, 7, 5, 'gaddagadg', 'http://localhost/rumahrahil_restful/restserver_rumahrahil/assets/img/default.png', '', 'dsa', 'a', 'e', 'w', 'D'),
+(46, 7, 6, 'sfaafsaf', 'http://localhost/rumahrahil_restful/restserver_rumahrahil/assets/img/default.png', '', 'sa', 'fs', 'fd', 'da', 'A');
 
 -- --------------------------------------------------------
 
@@ -511,10 +492,16 @@ INSERT INTO `tb_soal_latihan_sd` (`id_soal_latihan_sd`, `paket_latihan_sd_id`, `
 CREATE TABLE `tb_soal_ujian` (
   `id_soal_ujian` int(11) NOT NULL,
   `paket_soal_id` int(11) NOT NULL,
-  `no_soal` int(11) NOT NULL,
+  `no_soal_id` int(11) NOT NULL,
   `soal_text` text NOT NULL,
   `soal_gambar` varchar(256) NOT NULL,
-  `soal_suara` varchar(256) NOT NULL
+  `soal_suara` varchar(256) NOT NULL,
+  `option_a` varchar(256) NOT NULL,
+  `option_b` varchar(256) NOT NULL,
+  `option_c` varchar(256) NOT NULL,
+  `option_d` varchar(256) NOT NULL,
+  `option_e` varchar(256) DEFAULT NULL,
+  `jawaban_benar` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -607,7 +594,8 @@ CREATE TABLE `tb_user` (
 
 INSERT INTO `tb_user` (`id_user`, `role_id`, `jurusan_id`, `mapel_id`, `jenjang_id`, `kelas_id`, `nama`, `alamat`, `email`, `password`, `foto_profile`, `asal_sekolah`) VALUES
 (1, 1, 0, 0, 3, 0, 'Sudrajad Dwi Sasmita', 'Blimbing, Malang', 'sudrajad.dwi@gmail.com', 'uwik1234', 'SUDRAJAT_EDIT1.png', 'SMAN 1 Kutorejo'),
-(2, 2, 1, 0, 3, 0, 'Bambang', 'Polehan, Malang', 'bambang@gmail.com', '123456789', '2015-09-24_13_17_25.jpg', 'SMAN 1 Malang');
+(2, 2, 1, 0, 1, 1, 'Bambang', 'Polehan, Malang', 'bambang@gmail.com', '123456789', '2015-09-24_13_17_25.jpg', 'SMAN 1 Malang'),
+(3, 3, 0, 0, 1, 1, 'budi', 'Klojen, Malang', 'budi@gmail.com', '123456789', 'bromo.png', 'SDN Polehan');
 
 --
 -- Indexes for dumped tables
@@ -630,12 +618,6 @@ ALTER TABLE `tb_bab_latihan`
 --
 ALTER TABLE `tb_jawaban_latihan`
   ADD PRIMARY KEY (`id_jawaban_latihan`);
-
---
--- Indeks untuk tabel `tb_jawaban_latihan_sd`
---
-ALTER TABLE `tb_jawaban_latihan_sd`
-  ADD PRIMARY KEY (`id_jawaban_latihan_sd`);
 
 --
 -- Indeks untuk tabel `tb_jawaban_ujian`
@@ -668,12 +650,6 @@ ALTER TABLE `tb_kunci_jawaban_latihan`
   ADD PRIMARY KEY (`id_kunci_jawaban_latihan`);
 
 --
--- Indeks untuk tabel `tb_kunci_jawaban_sd`
---
-ALTER TABLE `tb_kunci_jawaban_sd`
-  ADD PRIMARY KEY (`id_kunci_jawaban_sd`);
-
---
 -- Indeks untuk tabel `tb_kunci_jawaban_ujian`
 --
 ALTER TABLE `tb_kunci_jawaban_ujian`
@@ -689,6 +665,12 @@ ALTER TABLE `tb_mapel`
 -- Indeks untuk tabel `tb_menu_backend`
 --
 ALTER TABLE `tb_menu_backend`
+  ADD PRIMARY KEY (`id_menu`);
+
+--
+-- Indeks untuk tabel `tb_menu_frontend`
+--
+ALTER TABLE `tb_menu_frontend`
   ADD PRIMARY KEY (`id_menu`);
 
 --
@@ -804,12 +786,6 @@ ALTER TABLE `tb_jawaban_latihan`
   MODIFY `id_jawaban_latihan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_jawaban_latihan_sd`
---
-ALTER TABLE `tb_jawaban_latihan_sd`
-  MODIFY `id_jawaban_latihan_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT untuk tabel `tb_jawaban_ujian`
 --
 ALTER TABLE `tb_jawaban_ujian`
@@ -840,12 +816,6 @@ ALTER TABLE `tb_kunci_jawaban_latihan`
   MODIFY `id_kunci_jawaban_latihan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_kunci_jawaban_sd`
---
-ALTER TABLE `tb_kunci_jawaban_sd`
-  MODIFY `id_kunci_jawaban_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
 -- AUTO_INCREMENT untuk tabel `tb_kunci_jawaban_ujian`
 --
 ALTER TABLE `tb_kunci_jawaban_ujian`
@@ -861,6 +831,12 @@ ALTER TABLE `tb_mapel`
 -- AUTO_INCREMENT untuk tabel `tb_menu_backend`
 --
 ALTER TABLE `tb_menu_backend`
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_menu_frontend`
+--
+ALTER TABLE `tb_menu_frontend`
   MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -921,7 +897,7 @@ ALTER TABLE `tb_soal_latihan`
 -- AUTO_INCREMENT untuk tabel `tb_soal_latihan_sd`
 --
 ALTER TABLE `tb_soal_latihan_sd`
-  MODIFY `id_soal_latihan_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_soal_latihan_sd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_soal_ujian`
@@ -951,7 +927,7 @@ ALTER TABLE `tb_tema_sd`
 -- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
