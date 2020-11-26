@@ -35,9 +35,9 @@
     <!-- azia CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/azia.css">
     <style>
-        .card {
-            box-shadow: 0 4px 4px 0 rgba(135, 206, 250, 2);
-            transition: 0.3s;
+        .card{
+            box-shadow: 0 4px 4px 0 rgba(0,0,0,2);
+            transition: 0.3s; 
         }
     </style>
 
@@ -48,28 +48,24 @@
     <div class="az-header">
         <div class="container">
             <div class="az-header-left">
-                <a href="<?= base_url('dashboard'); ?>" class="az-logo"><span></span> Rumah Rahil Education</a>
+                <a href="<?= base_url('guru'); ?>" class="az-logo"><span></span> Rumah Rahil Education</a>
                 <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
             </div><!-- az-header-left -->
             <div class="az-header-menu">
                 <div class="az-header-menu-header">
-                    <a href="<?= base_url('dashboard'); ?>" class="az-logo"><span></span> Rumah Rahil</a>
+                    <a href="<?= base_url('guru'); ?>" class="az-logo"><span></span> Rumah Rahil</a>
                     <a href="" class="close">&times;</a>
                 </div><!-- az-header-menu-header -->
                 <ul class="nav">
                     <li class="nav-item active show">
-                        <a href="<?= base_url('dashboard'); ?>" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
+                        <a href="<?= base_url('guru'); ?>" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
                     </li>
-                    <?php foreach ($menu as $m) : ?>
-                        <?php if ($title === $m['menu']) : ?>
-                            <li class="nav-item active">
-                            <?php else : ?>
-                            <li class="nav-item">
-                            <?php endif; ?>
-                            <a href="<?= base_url($m['url']); ?>" class="nav-link"><i class="<?= $m['icon']; ?> mr-1"></i> <?= $m['menu']; ?></a>
-                            </li>
-                        <?php endforeach; ?>
-
+                    <li class="nav-item">
+                        <a href="<?= base_url('guru/tampil'); ?>" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Nilai</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="form-elements.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Profile</a>
+                    </li>
                 </ul>
             </div><!-- az-header-menu -->
             <div class="az-header-right">
@@ -89,7 +85,7 @@
                             <span>Premium Member</span>
                         </div><!-- az-header-profile -->
 
-                        <a href="<?= base_url('SD/Profile'); ?>" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
+                        <a href="<?= base_url('Profile'); ?>" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
                         <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
                         <a href="<?= base_url('logout') ?>" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
                     </div><!-- dropdown-menu -->

@@ -23,16 +23,11 @@
     <!--===============================================================================================-->
     <style>
         .card {
-            /* Add shadows to create the "card" effect */
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 4px 0 rgba(135, 206, 250, 2);
             transition: 0.3s;
         }
-
-        /* On mouse-over, add a deeper shadow */
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        }
     </style>
+
 </head>
 
 <body>
@@ -40,56 +35,55 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <div class="login100-pic js-tilt mb-136" data-tilt>
-                    <img src="<?= base_url('asset/'); ?>images/img-01.png" alt="IMG">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="<?= base_url('asset/'); ?>images/favlogo.png" alt="IMG">
                 </div>
 
-                <form method="POST" action="<?= base_url('Login'); ?>" class="login100-form validate-form">
+                <div class="card card-dashboard-one p-1 m-2">
+                    <form method="POST" action="<?= base_url('Login'); ?>" class="login100-form validate-form">
 
 
-                    <span class="login100-form-title">
-                        Member Login
-                    </span>
-
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="email" placeholder="Email">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <span class="login100-form-title">
+                            Member Login
                         </span>
-                    </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="pass" placeholder="Password">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-lock" aria-hidden="true"></i>
-                        </span>
-                    </div>
+                        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                            <input class="input100" type="text" name="email" placeholder="Email">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                        </div>
 
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Login
-                        </button>
-                    </div>
+                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                            <input class="input100" type="password" name="pass" placeholder="Password">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div>
 
-                    <div class="text-center p-t-12">
-                        <span class="txt1">
-                            Forgot
-                        </span>
-                        <a class="txt2" href="#">
-                            Username / Password?
-                        </a>
-                    </div>
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn">
+                                Login
+                            </button>
+                        </div>
 
-
-                    <div class="text-center p-t-136">
-                        <a class="txt2" href="<?php echo base_url('login/registrasi') ?>">
-                            Create your Account
-                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </form>
+                        <div class="text-center p-t-12">
+                            <span class="txt1">
+                                Forgot
+                            </span>
+                            <a class="txt2" href="#">
+                                Username / Password?
+                            </a>
+                            <br><br><br>
+                            <a class="txt2" href="<?php echo base_url('login/registrasi') ?>">
+                                Create your Account
+                                <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@
         <div class="az-content-body">
             <div class="az-dashboard-one-title">
                 <div>
-                    <h2 class="az-dashboard-title">Hai, Selamat Datang!</h2>
+                    <h1 class="az-dashboard-title ">Hai, Selamat Datang!</h1>
                     <p class="az-dashboard-text">Selamat melaksanakan tes online.</p>
                 </div>
             </div><!-- az-dashboard-one-title -->
@@ -11,14 +11,14 @@
                 <div class="col-lg-7 ht-lg-90p">
                     <div class="card card-dashboard-one p-1">
                         <div class="row no-gutters">
-                            <div class="col-md-4" style="height: 365px;">
+                            <div class="col-md-5 m-auto">
                                 <img src="<?= base_url('assets'); ?>/img/boy.png" class="card-img">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-5 m-auto">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?= $user['nama']; ?></h5>
-                                    <p class="card-text"><?= $user['asal_sekolah']; ?></p>
-                                    <p class="card-text"><small class="text-muted"><?= $user['email']; ?></small></p>
+                                    <h1 class="card-title"><?= $user['nama']; ?></h1>
+                                    <h3 class="card-text"><?= $user['asal_sekolah']; ?></h3>
+                                    <h3 class="card-text"><small class="text-muted"><?= $user['email']; ?></small></h3>
                                 </div>
                             </div>
                         </div>
@@ -28,54 +28,71 @@
                     <div class="row row-sm">
                         <div class="col-sm-6">
                             <div class="card card-dashboard-two">
-                                <div class="card-header">
-                                    <h6>NISN</h6>
-                                    <p>Diambil dari API</p>
-                                </div><!-- card-header -->
-                                <div class="card-body">
-                                    <div class="chart-wrapper">
-                                        <div id="flotChart2" class="flot-chart"></div>
-                                    </div><!-- chart-wrapper -->
+                                <div class="row p-3">
+                                    <div class="card-header">
+                                        <h6>NISN</h6>
+                                        <p>Diambil dari API</p>
+                                    </div><!-- card-header -->
+                                    <div class="card-body m-auto">
+                                        <div class="chart-wrapper text-center">
+                                            <h1>
+                                                <i class="fas fa-id-card"></i>
+                                            </h1>
+                                        </div><!-- chart-wrapper -->
+                                    </div>
                                 </div>
                             </div><!-- card -->
                         </div><!-- col -->
-                        <div class="col-sm-6 mg-t-20 mg-sm-t-0">
+                        <div class="col-sm-6">
                             <div class="card card-dashboard-two">
-                                <div class="card-header">
-                                    <h6>KELAS</h6>
-                                    <p><?= $user['kelas_id']; ?></p>
-                                </div><!-- card-header -->
-                                <div class="card-body">
-                                    <div class="chart-wrapper">
-                                        <div id="flotChart2" class="flot-chart"></div>
+                                <div class="row p-3">
+
+                                    <div class="card-header">
+                                        <h6>KELAS</h6>
+                                        <p><?= $user['kelas_id']; ?></p>
+                                    </div><!-- card-header -->
+                                    <div class="card-body m-auto">
+                                        <div class="chart-wrapper text-center">
+                                            <h1>
+                                                <i class="fas fa-school"></i>
+                                            </h1>
+                                        </div>
                                     </div><!-- chart-wrapper -->
                                 </div><!-- card-body -->
                             </div><!-- card -->
                         </div><!-- col -->
-                        <div class="col-sm-6 mt-5">
+                        <div class="col-sm-6 mt-3">
                             <div class="card card-dashboard-two">
-                                <div class="card-header">
-                                    <h6>TANGGAL</h6>
-                                    <span class="d-block"><?= strftime(' %d %B %Y') ?></span>
-                                </div><!-- card-header -->
-                                <div class="card-body">
-                                    <div class="chart-wrapper">
-                                        <div id="flotChart2" class="flot-chart"></div>
-                                    </div><!-- chart-wrapper -->
+                                <div class="row p-3">
+                                    <div class="card-header">
+                                        <h6>TANGGAL</h6>
+                                        <span class="d-block"><?= strftime(' %d %B %Y') ?></span>
+                                    </div><!-- card-header -->
+                                    <div class="card-body m-auto">
+                                        <div class="chart-wrapper text-center">
+                                            <h1>
+                                                <i class="far fa-calendar-alt"></i>
+                                            </h1>
+                                        </div><!-- chart-wrapper -->
+                                    </div>
                                 </div>
                             </div><!-- card -->
                         </div><!-- col -->
-                        <div class="col-sm-6 mg-t-20 mg-sm-t-0 mt-5">
+                        <div class="col-sm-6 mt-3">
                             <div class="card card-dashboard-two">
-                                <div class="card-header">
-                                    <h6>WAKTU</h6>
-                                    <span class="d-block"> <span class="live-clock"><?= date('H:i:s') ?></span></span>
-                                </div><!-- card-header -->
-                                <div class="card-body">
-                                    <div class="chart-wrapper">
-                                        <div id="flotChart2" class="flot-chart"></div>
-                                    </div><!-- chart-wrapper -->
-                                </div><!-- card-body -->
+                                <div class="row p-3">
+                                    <div class="card-header">
+                                        <h6>WAKTU</h6>
+                                        <span class="d-block"> <span class="live-clock"><?= date('H:i:s') ?></span></span>
+                                    </div><!-- card-header -->
+                                    <div class="card-body m-auto">
+                                        <div class="chart-wrapper text-center">
+                                            <h1>
+                                                <i class="far fa-clock"></i>
+                                            </h1>
+                                        </div><!-- chart-wrapper -->
+                                    </div><!-- card-body -->
+                                </div>
                             </div><!-- card -->
                         </div><!-- col -->
                     </div><!-- row -->
