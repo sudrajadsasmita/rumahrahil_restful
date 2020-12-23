@@ -26,17 +26,17 @@
                 </div><!-- col -->
                 <div class="col-lg-5 mg-t-20 mg-lg-t-0">
                     <div class="row row-sm">
-                        <div class="col-sm-6">
-                            <div class="card card-dashboard-two">
+                        <div class="col-sm-6 ">
+                            <div class="card card-dashboard-two bg-success">
                                 <div class="row p-3">
                                     <div class="card-header">
-                                        <h6>NISN</h6>
-                                        <p class="h6 mt-3">Diambil dari API</p>
+                                        <h6 style="color: white;">NISN</h6>
+                                        <p class="h6 mt-3" style="color: white;">Diambil dari API</p>
                                     </div><!-- card-header -->
                                     <div class="card-body m-auto">
                                         <div class="chart-wrapper text-center">
                                             <h1>
-                                                <i class="fas fa-id-card"></i>
+                                                <span style="color: white;"><i class="fas fa-id-card"></i></span>
                                             </h1>
                                         </div><!-- chart-wrapper -->
                                     </div>
@@ -44,17 +44,17 @@
                             </div><!-- card -->
                         </div><!-- col -->
                         <div class="col-sm-6">
-                            <div class="card card-dashboard-two">
+                            <div class="card card-dashboard-two bg-primary">
                                 <div class="row p-3">
 
                                     <div class="card-header">
-                                        <h6>KELAS</h6>
-                                        <p class="h6 mt-3"><?= $user['kelas_id']; ?></p>
+                                        <h6 style="color: white;">KELAS</h6>
+                                        <p class="h6 mt-3" style="color: white;"><?= $user['kelas_id']; ?></p>
                                     </div><!-- card-header -->
                                     <div class="card-body m-auto">
                                         <div class="chart-wrapper text-center">
                                             <h1>
-                                                <i class="fas fa-school"></i>
+                                                <span style="color: white;"><i class="fas fa-school"></i></span>
                                             </h1>
                                         </div>
                                     </div><!-- chart-wrapper -->
@@ -62,16 +62,16 @@
                             </div><!-- card -->
                         </div><!-- col -->
                         <div class="col-sm-6 mt-4">
-                            <div class="card card-dashboard-two">
+                            <div class="card card-dashboard-two bg-warning">
                                 <div class="row p-3">
                                     <div class="card-header">
-                                        <h6>TANGGAL</h6>
-                                        <span class="d-block h6 mt-3"><?= strftime(' %d %B %Y') ?></span>
+                                        <h6 style="color: white;">TANGGAL</h6>
+                                        <span class="d-block h6 mt-3" style="color: white;"><?= strftime(' %d %B %Y') ?></span>
                                     </div><!-- card-header -->
                                     <div class="card-body m-auto">
                                         <div class="chart-wrapper text-center">
                                             <h1>
-                                                <i class="far fa-calendar-alt"></i>
+                                                <span style="color: white;"><i class="far fa-calendar-alt"></i></span>
                                             </h1>
                                         </div><!-- chart-wrapper -->
                                     </div>
@@ -79,16 +79,16 @@
                             </div><!-- card -->
                         </div><!-- col -->
                         <div class="col-sm-6 mt-4">
-                            <div class="card card-dashboard-two">
+                            <div class="card card-dashboard-two bg-danger">
                                 <div class="row p-3">
                                     <div class="card-header">
-                                        <h6>WAKTU</h6>
-                                        <span class="d-block h6 mt-3"> <span class="live-clock"><?= date('H:i:s') ?></span></span>
+                                        <h6 style="color: white;">WAKTU</h6>
+                                        <span class="d-block h6 mt-3" style="color: white;"> <span class="live-clock"><?= date('H:i:s') ?></span></span>
                                     </div><!-- card-header -->
                                     <div class="card-body m-auto">
                                         <div class="chart-wrapper text-center">
                                             <h1>
-                                                <i class="far fa-clock"></i>
+                                                <span style="color: white;"><i class="far fa-clock"></i></span>
                                             </h1>
                                         </div><!-- chart-wrapper -->
                                     </div><!-- card-body -->

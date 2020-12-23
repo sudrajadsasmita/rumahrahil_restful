@@ -54,5 +54,11 @@ class Soal extends CI_Controller
         //beri penilaian
         $point = 100 / count($jawabanKunci);
         $nilai = $counter * $point;
+        $email = $this->session->userdata('email');
+        $data['user'] = $this->user->getUserWhereEmail($email);
+        $data['title'] = 'Tampil Nilai';
+        $data['id'] = $id;
+        $data['soal'] = $this->Soal_model->getSoal($id);
+        $this->load->view('tampil_nilai/tampil_nilai', $data);
     }
 }

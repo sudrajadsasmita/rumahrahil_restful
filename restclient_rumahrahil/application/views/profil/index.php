@@ -7,29 +7,28 @@
                     </div>
                 </div><!-- az-dashboard-one-title -->
                 <div class="row row-sm mg-b-20">
-                    <div class="col-lg-7 ht-lg-90p">
-                        <div class="card card-dashboard-one ">
+                    <!-- <div class="col-lg-7 ht-lg-90p"> -->
+                       <!--  <div class="card card-dashboard-one "> -->
                             <div id="card" class="card mb-3" style="max-width: 930px;">
                                 <div class="row no-gutters">
-                                    <div class="col-md-4" style="height: 365px;">
+                                    <div class="col-md-5 mt-3" style="height: 365px;">
                                         <img src="<?= base_url('assets'); ?>/img/boy.png" class="card-img">
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-6 m-auto">
                                         <div class="card-body">
-                                            <h5 class="card-title"><?= $user['nama']; ?></h5>
-                                            <h5 class="card-title"><?= $user['asal_sekolah']; ?></h5>
-                                            <h5 class="card-title"><?= $user['email']; ?></h5>
+                                            <h2 class="card-title"><?= $user['nama']; ?></h5>
+                                            <h2 class="card-title"><?= $user['asal_sekolah']; ?></h5>
+                                            <h2 class="card-title"><?= $user['email']; ?></h5>
+                                            <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#detail">detail</a>
+                                    <a href="" class="btn btn-outline-success" data-toggle="modal" data-target="#Edit">Edit Profile</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#detail">detail</a>
-                                    <a href="" class="btn btn-outline-success" data-toggle="modal" data-target="#Edit">Edit Profile</a>
-                                </div>
-                            </div>
-                        </div><!-- card -->
+                                
+                           <!--  </div> -->
+                       <!--  </div> --><!-- card -->
                     </div><!-- col -->
-                    <div class="col-lg-5 mg-t-20 mg-lg-t-0">
+                    <!-- <div class="col-lg-5 mg-t-20 mg-lg-t-0"> -->
                         <div class="row row-sm">
                             <!-- Button trigger modal -->
 
